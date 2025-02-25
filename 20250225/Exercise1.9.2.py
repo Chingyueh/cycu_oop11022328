@@ -1,0 +1,6 @@
+a=round(42.5)
+print(a)
+print(round(42.5))
+b=round(43.5)
+print(b)
+print(round(43.5))
