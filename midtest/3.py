@@ -1,53 +1,75 @@
-import requests
+from playwright.sync_api import sync_playwright
 import pandas as pd
+import time
 
-def fetch_bus_route_data(bus_code):
-    # 定義 URL，並帶入公車代碼
-    url = f'https://ebus.gov.taipei/Route/StopsOfRoute?routeid={bus_code}'
 
-    # 向網站發送 GET 請求，取得 JSON 資料
-    response = requests.get(url)
-    
-    # 檢查回應狀態碼
-    if response.status_code != 200:
-        print(f"Error: Unable to fetch data. Status code {response.status_code}")
-        return
+def parse_direction(direction_div):
+    results = []
+    li_elements = direction_div.query_selector_all("li")
+    for li in li_elements:
+        time_element = li.query_selector(
+            "span.auto-list-stationlist-position.auto-list-stationlist-position-time")
+        if not time_element:
+            time_element = li.query_selector(
+                "span.auto-list-stationlist-position.auto-list-stationlist-position-now")
+            arrival_time = "進站中" if time_element else ""
+        else:
+            arrival_time = time_element.inner_text() if time_element else ""
+        seq_element = li.query_selector("span.auto-list-stationlist-number")
+        seq_num = seq_element.inner_text() if seq_element else ""
+        name_element = li.query_selector("span.auto-list-stationlist-place")
+        stop_name = name_element.inner_text() if name_element else ""
+        id_element = li.query_selector("input#item_UniStopId")
+        stop_id = id_element.get_attribute("value") if id_element else ""
+        lat_element = li.query_selector("input[name='item.Latitude']")
+        latitude = lat_element.get_attribute("value") if lat_element else ""
+        lng_element = li.query_selector("input[name='item.Longitude']")
+        longitude = lng_element.get_attribute("value") if lng_element else ""
+        results.append([arrival_time, seq_num, stop_name,
+                       stop_id, latitude, longitude])
+    return results
 
-    # 解析 JSON 資料
-    data = response.json()
 
-    # 檢查是否包含 'arrival_info' 資料
-    if 'arrival_info' not in data:
-        print("Error: No 'arrival_info' found in the data.")
-        return
+def scrape_bus_route(routeid="0100000A00"):
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        page = browser.new_page()
+        url = f"https://ebus.gov.taipei/Route/StopsOfRoute?routeid={routeid}"
+        page.goto(url)
+        page.wait_for_selector("#GoDirectionRoute")
+        time.sleep(2)
 
-    # 解析 'arrival_info' 部分資料
-    arrival_info = data['arrival_info']
+        # 1. 去程
+        page.click("a.stationlist-go")
+        time.sleep(1)
+        go_div = page.query_selector("#GoDirectionRoute")
+        go_data = parse_direction(go_div)
+        go_df = pd.DataFrame(
+            go_data, columns=["公車到達時間", "車站序號", "車站名稱", "車站編號", "latitude", "longitude"])
+        go_df.to_csv(f"bus_stops_{routeid}_go.csv",
+                     index=False, encoding="utf-8-sig")
+        print(f"已儲存 bus_stops_{routeid}_go.csv")
+        print("去程：")
+        print(go_df)
 
-    # 儲存需要的資料
-    rows = []
-    for stop in arrival_info:
-        stop_number = stop.get('stop_number', '')
-        stop_name = stop.get('stop_name', '')
-        stop_id = stop.get('stop_id', '')
-        latitude = stop.get('latitude', '')
-        longitude = stop.get('longitude', '')
-        arrival_time = stop.get('arrival_time', '')
+        # 2. 回程
+        page.click("a.stationlist-come")
+        page.wait_for_selector("#BackDirectionRoute", state="visible")
+        time.sleep(1)
+        back_div = page.query_selector("#BackDirectionRoute")
+        back_data = parse_direction(back_div)
+        back_df = pd.DataFrame(back_data, columns=[
+                               "公車到達時間", "車站序號", "車站名稱", "車站編號", "latitude", "longitude"])
+        back_df.to_csv(f"bus_stops_{routeid}_back.csv",
+                       index=False, encoding="utf-8-sig")
+        print(f"已儲存 bus_stops_{routeid}_back.csv")
+        print("回程：")
+        print(back_df)
 
-        # 將每一條資料作為一行添加到列表中
-        rows.append([arrival_time, stop_number, stop_name, stop_id, latitude, longitude])
+        browser.close()
+        return go_df, back_df
 
-    # 將資料轉換為 DataFrame
-    df = pd.DataFrame(rows, columns=["公車到達時間", "車站序號", "車站名稱", "車站編號", "經緯度座標 latitude", "longitude"])
-
-    # 輸出為 CSV 檔案
-    df.to_csv(f"bus_route_{bus_code}.csv", index=False, encoding='utf-8')
-    print(f"CSV file 'bus_route_{bus_code}.csv' has been saved.")
 
 if __name__ == "__main__":
-    # 請求用戶輸入公車代碼
-    bus_code = input("請輸入公車代碼（例如：0100000A00）：")
-    
-    # 執行函數抓取並處理資料
-    fetch_bus_route_data(bus_code)
-
+    route_id = "0100000A00"  # 你可以自行更換
+    go_df, back_df = scrape_bus_route(route_id)
