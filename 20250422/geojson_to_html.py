@@ -26,7 +26,7 @@ def geojson_to_html(geojson_file, output_html):
 
 if __name__ == '__main__':
     # 指定輸入的 GeoJSON 檔案和輸出的 PNG 檔案
-    inputfile = "20250422/bus_stops.geojson"
+    inputfile = "20250422/bus_stop2.geojson"
     outputfile = "bus_stops.html"
 
     # 轉換並儲存地圖形
