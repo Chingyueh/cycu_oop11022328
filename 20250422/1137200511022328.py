@@ -1,19 +1,33 @@
-import pandas as pd
-import numpy as np
-import geopandas as gpd
-import matplotlib.pyplot as plt
+import json
+import folium
 
-def draw_geojson_to_png(inputfile: str, outputfile: str):
-    # 讀取 bus_stop2.geojson
-    bus_stops = gpd.read_file("20250422/bus_stop2.geojson")
+def geojson_to_html(geojson_file, output_html):
+    """
+    Converts a GeoJSON file into an interactive HTML map using Folium.
 
-    # 繪製所有公車站點
-    fig, ax = plt.subplots(figsize=(10, 10))
-    bus_stops.plot(ax=ax, color='blue', markersize=5)
-    plt.title("Bus Stops")
-    plt.xlabel("Longitude")
-    plt.ylabel("Latitude")
+    :param geojson_file: Path to the input GeoJSON file.
+    :param output_html: Path to the output HTML file.
+    """
+    # Load GeoJSON data
+    with open(geojson_file, 'r', encoding='utf-8') as file:
+        geojson_data = json.load(file)
 
-    # 儲存為 PNG 檔案
-    plt.savefig("20250422/bus_stops.png")
-    plt.close()
+    # Create a Folium map
+    m = folium.Map(location=[0, 0], zoom_start=2)
+
+    # Add GeoJSON data to the map
+    folium.GeoJson(geojson_data).add_to(m)
+
+    # Save the map to an HTML file
+    m.save(output_html)
+
+# Example usage
+# geojson_to_html('bus_stops.geojson', 'bus_stops_map.html')
+
+if __name__ == '__main__':
+    # 指定輸入的 GeoJSON 檔案和輸出的 PNG 檔案
+    inputfile = "20250422/bus_stops.geojson"
+    outputfile = "bus_stops.html"
+
+    # 轉換並儲存地圖形
+    geojson_to_html(inputfile, outputfile)
