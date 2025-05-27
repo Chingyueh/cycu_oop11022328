@@ -1,0 +1,2683 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 8]> <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<head>
+    <script>
+        var SitePath = '/';
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="format-detection" content="telephone=no" />
+    <title>大臺北公車</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=4, minimum-scale=0.5, user-scalable=yes">
+
+    <link rel="stylesheet" href="/styles/html5reset-1.6.1.min.css" />
+    <link href="/web/css?v=sRaS4eVeEUiSbsmDNyPCQX6_bGwBuAfoNm1EFEuVJsQ1" rel="stylesheet"/>
+
+    <link rel="stylesheet" type="text/css" media="screen and (max-width:768px)" href="/pad/css?v=-VA-V4vm8GvG2qYKGZXk3Qi1cWfbcBMLSWm5uytMv8A1">
+
+    <link rel="stylesheet" type="text/css" media="screen and (max-width:480px)" href="/phone/css?v=tNT4bc9cbLmN5rC7jOPAfHE2gTc_N47eqhKenWJ5sQk1">
+
+    
+    
+    
+    <link href="/sweetAlert/css?v=Q7l7a83fZdl7_6jt13P3HsHoLWvbYv1YpqCreuQlPuQ1" rel="stylesheet"/>
+
+    <script src="/sweetAlert2/css?v=fJb18S8FvSIfJsXWl8pwQn02lsvJyZVA2V9a_xRxskI1"></script>
+
+    
+    <link href="/CustomScrollbar/css?v=cTpwHD23PH7gbg8rY79THNO6JzhoW_RwUaR7zeCFjOI1" rel="stylesheet"/>
+
+    <link href="/toastr/css?v=bUMX5PdhipTCZJVvmdqKc60mrvySkxFZQUqXQRjL8kI1" rel="stylesheet"/>
+
+    <link href="/simpleRouteMap/css?v=eN0OvNIAPpKksgTz7sjIy-B4L9bOLNcs7ckhBHKid1Q1" rel="stylesheet"/>
+
+
+
+
+    <script>
+        var viccknCulture = null;
+        function Mybus(event, _elem) {
+            event.preventDefault();
+            var islogin = jQuery('a.login-link');
+            if (islogin.length>0) {
+                //
+                alert(i18n._('Please Login'));
+            } else {
+                window.location.replace(_elem.href);
+            }
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
+    <script src="/bundles/jquery?v=q7mEgdXrcJJy32YRlrFef8zHiCgDFSUdNzefyodQYIQ1"></script>
+
+    
+
+    
+
+</head>
+<body class="tebus">
+    <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or
+    <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+    <a href="javascript:void(0);" class="tebus-up web-none" title="置頂"></a>  
+    <!-- being header web-->
+    <header class="tebus-main-header-c  pad-none">
+        <div class="teBUS-main-header">
+            <div class="teBUS-logo-c">
+                <a href="/Dybus.aspx" class="teBUS-logo" title="首頁"></a>
+                <p class="teBUS-visite">到訪人數<span class="teBUS-visite-number">230077118</span></p>
+            </div>
+            <nav class="teBUS-nav-language-marquee-c">
+                <ul class="teBUS-nav-language-c">
+                    
+                            <li class="pad-none">
+                               
+                            <a class="nav-language-link" href="https://e-bus.tpc.gov.tw" target="_blank">無障礙 </a> /
+                            </li>
+
+
+                    <li><a class="nav-language-link" href="/Home/SetCulture?culture=zh-TW&amp;returnURL=%2FRoute%2FStopsOfRoute%3Frouteid%3D0454072100">中文</a> / </li>
+                        <li><a class="nav-language-link" href="/Home/SetCulture?culture=en&amp;returnURL=%2FRoute%2FStopsOfRoute%3Frouteid%3D0454072100">English</a> / </li>
+                    <li><a class="nav-language-link login-link" href="javascript:void(0);" alt="會員登入">會員登入</a>/</li>
+                    <li><a href="/MyBus" class="nav-language-link" onclick="Mybus(event, this)">我的公車</a></li>
+                    <li>/<a class="nav-language-link" href="https://www.pto.gov.taipei/Questionnaire_Content.aspx?n=63FD5A257079935F&s=E4505D512A861F41&sms=7F78FC0503254E9A" target="_blank">滿意度調查</a> </li>
+
+                      
+                    
+                </ul>
+                <input id="marqueeSpeed" name="marqueeSpeed" type="hidden" value="6" />
+                
+                <marquee scrollamount="6"><div class='teBUS-marquee2' ></div></marquee>
+            </nav>
+        </div>
+    </header>
+    <!-- end header web-->
+    <!-- being header pad-->
+    <header class="teBUS-pad-main-header-c web-none">
+
+        <div class="teBUS-pad-main-nav-icon">
+            <ul class="teBUS-nav-main-language-pad-c">
+                <li class="nav-main-language-title">語言</li>
+
+                <li>
+                    <span class="label-checkbox-language-c">
+
+<form action="/Home/SetCulture?returnURL=%2FRoute%2FStopsOfRoute%3Frouteid%3D0454072100" id="SetCultureForm" method="get" role="form">                            <label class="label-radio label-checkbox-language">
+                                <input checked="checked" class="radio fast-search-radio" id="culture" name="culture" type="radio" value="zh-TW" />
+                                中文
+                            </label>
+                            <label class="label-radio label-checkbox-language">
+                                <input class="radio fast-search-radio" id="culture" name="culture" type="radio" value="en" />
+                                English
+                            </label>
+<input id="returnURL" name="returnURL" type="hidden" value="/Route/StopsOfRoute?routeid=0454072100" /></form>                    </span>
+                </li>
+                <li class="nav-main-language-title">功能選單</li>
+                
+                <li><a href="/ebus" class="main-nav-pad">公車動態</a></li>
+                <li><a href="/Query/BusRoute" class="main-nav-pad">GIS動態</a></li>
+                <li><a href="/Transfer/TransPlan" class="main-nav-pad">轉乘規劃</a></li>
+                
+                    <li><a href="https://pda.5284.gov.taipei" class="main-nav-pad">PDA</a></li>
+                    <li><a href="/projectbus" class="main-nav-pad">專區</a></li>
+                        <li><a href="/RelatedLinks" class="main-nav-pad">相關連結</a></li>
+                        <li></li>
+                
+            </ul>
+        </div>
+        <div class="teBUS-main-nav-pad-c">
+            <a href=javascript:history.back(); class="teBUS-pad-main-come-back-icon" title="回上一頁"></a>
+            <a href="/Dybus.aspx" class="teBUS-logo-pad" title="logo" alt="logo"></a>
+            <a href=javascript:toggleMenu(); class="teBUS-pad-main-nav-icon-c" title=""></a>
+        </div>
+    </header>
+    <!-- end header pad-->
+    <!-- being content -->
+    <div class="teBUS-main-container">
+
+        <!--begin main list-->
+        <div class="teBUS-main-nav-c pad-none">
+
+    <ul class="teBUS-main-nav-pool">
+        <li class="main-nav-typt"><a href="javascript:void(0)" onclick="history.go(-1)" class="main-nav" title="回上一頁"><img src="/images/nav_011.svg" width="100%" alt="回上一頁"></a></li>
+       
+            <li class="main-nav-typt"><a href="/ebus" class="main-nav"><img src="/images/nav_013.svg" width="100%" alt="公車動態">公車動態</a></li>
+        <li class="main-nav-typt"><a href="/Query/BusRoute" class="main-nav" title="GIS動態"><img src="/images/nav_002.svg" width="100%" alt="GIS動態">GIS動態</a></li>
+        <li class="main-nav-typt"><a href="/Transfer/TransPlan" class="main-nav" title="轉乘規劃"><img src="/images/nav_003.svg" width="100%" alt="轉乘規劃">轉乘規劃</a></li>
+
+       
+        <li class="main-nav-typt"><a href="https://pda.5284.gov.taipei" target="_blank" class="main-nav"><img src="/images/atk-PDA.svg" width="100%" alt="PDA">PDA</a></li>
+        <li class="main-nav-typt">
+            <a href="/Query/NearBus" class="main-nav"><img src="/images/atk-nearbystop.svg" width="100%" alt="附近站牌">附近站牌</a>
+        </li>
+        
+
+        
+        <li class="main-nav-typt"><a href="/RelatedLinks" class="main-nav" title="相關連結"><img src="/images/nav_008.svg" width="100%" alt="相關連結">相關連結</a></li>
+        
+        <li class="main-nav-typt"><a href="/projectbus" class="main-nav" title="專區"><img src="/images/nav_012.svg" width="100%" alt="專區">專區</a></li>
+
+        
+    </ul>
+</div>
+<div id="Login_DL" class="teBus-dialog-c" style="display:none">
+    <form id="LoginForm">
+        <div class="teBus-dialog login-c">
+            <h1 class="teBus-dialog-h1"><span class="teBus-dialog-title-img login-img" alt=" "></span>會員登入</h1>
+            <span class="teBus-dialog-close-icon-c"><a href='javascript: void(0);' class="teBus-dialog-close-icon" title="關閉" alt="關閉"></a></span>
+
+            <ul class="teBus-dialog-ul">
+                <li class="teBus-dialog-li">
+                    
+                </li>
+                <li class="teBus-dialog-li">
+                    <span class="teBus-dialog-li-title">電子郵件</span>
+                    <label><input autocomplete="off" class="teBus-dialog-input-text-one" data-val="true" data-val-email="電子郵件欄位不是有效的電子郵件地址。" data-val-required="電子郵件是必要項" id="Email" name="Email" type="text" value="" /></label>
+                    <span class="field-validation-valid teBus-diolag-note" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                </li>
+                <li class="teBus-dialog-li">
+                    <span class="teBus-dialog-li-title">密碼</span>
+                    <label><input autocomplete="off" class="teBus-dialog-input-text-one" data-val="true" data-val-required="密碼是必要項" id="Password" name="Password" type="password" /></label>
+                    <span class="field-validation-valid teBus-diolag-note" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                </li>
+                <li class="teBus-dialog-li" style=" margin:0 auto;width: 50%;">
+                    
+
+                   
+                        <div class="h-captcha" data-sitekey="e57803e5-35a9-40c1-92dc-889ae1a81fc8"></div>
+                        <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+                    
+                </li>
+
+                <li>
+                    <label class="teBus-login-dialog-enter-c">
+                        <input class="teBus-dialog-checkbox-one login-enter-checkbox" data-val="true" data-val-required="記住我 欄位是必要項。" id="RememberMe" name="RememberMe" type="checkbox" value="true" /><input name="RememberMe" type="hidden" value="false" />
+                        <label for="RememberMe">記住我</label>
+                        
+                        <a href="javascript:void(0)" class="teBus-dialog-submit login-enter-submit">登入</a>
+                        <!--input type="submit" value="登入" class="teBus-dialog-submit login-enter-submit"-->
+                    </label>
+                </li>
+            </ul>
+
+            <div class="teBus-login-dialog-link-pool ">
+                <a href="javascript:void(0)" class="teBus-login-dialog-link-one register-link"><img src="/images/dialog_register_icon.svg" width="100%">註冊</a>
+                <a href="javascript:void(0)" class="teBus-login-dialog-link-one forgot-password-link"><img src="/images/dialog_forgot_password_icon.svg" width="100%">忘記密碼</a>
+                
+    <a href="javascript:void(0)" class="teBus-login-dialog-link-one resend-confirm-email-link"><img src="/images/atk-resendmail.svg" width="100%">重發確認信</a>
+                
+                
+            </div>
+        </div>
+
+    </form>
+<form action="/Account/ExternalLogin?ReturnUrl=%2FRoute%2FStopsOfRoute%3Frouteid%3D0454072100" class="form-horizontal" id="ExternalLoginForm" method="post" role="form">        <input type="hidden" name="__RequestVerificationToken" class="verification-token" />
+        <input type="hidden" name="provider" />
+</form></div>
+
+<script>
+    function OpenLoginDialog() {
+        $("#Login_DL").dialog('open');
+        // Press enter key to submit
+        $(".teBus-dialog-input-text-one").keyup(function (event) {
+            if (event.keyCode == 13) {
+                $(".login-enter-submit").click();
+            }
+        });
+    }
+    function CloseLoginDialog() {
+        $("#Login_DL").dialog('close');
+    }
+    $(function () {
+        $("#Login_DL").show();
+        $("#Login_DL").dialog({
+            autoOpen: false,
+            modal: true,
+            width: $("#Login_DL").find('.teBus-dialog').width(),
+            show: {
+                effect: "clip",
+                duration: 300
+            },
+            hide: {
+                effect: "clip",
+                duration: 300
+            },
+            close: function (event, ui) {
+                $("#LoginForm").find('input[name="Email"]').val('');
+                $("#LoginForm").find('input[name="Password"]').val('');
+            },
+            position: { my: "center", at: "center", of: window }
+        });
+        // Form subnit action
+        $('.login-enter-submit').click(function () {
+            if ($('#LoginForm').valid()) {
+ 
+                    $.ajax({
+                        url: '/Account/Login?ReturnUrl=%2FRoute%2FStopsOfRoute%3Frouteid%3D0454072100',
+                        dataType: "json",
+                        type: "post",
+                        data: {
+                            '__RequestVerificationToken': $('input[name=__RequestVerificationToken]').val(),
+                            'X-Requested-With': 'XMLHttpRequest',
+                            "Email": $("#LoginForm").find('input[name="Email"]').val(),
+                            "Password": $("#LoginForm").find('input[name="Password"]').val(),
+                            "RememberMe": $('input[name="RememberMe"]').is(":checked"),
+                            "RecaptchaToken": $('[name=h-captcha-response]').val()
+                            //"RecaptchaToken": $('#LoginForm textarea').val()
+                        },
+                        success: function (data) {
+                            if (data.ErrorCode === 100) window.location.replace(data.Msg);
+                            if (data.ErrorCode === 101 || data.ErrorCode === 103) $("#LoginForm").find('input[name="Email"]').closest('.teBus-dialog-li').find('.teBus-diolag-note').text(data.Msg);
+                            if (data.ErrorCode === 102) $("#LoginForm").find('input[name="Password"]').closest('.teBus-dialog-li').find('.teBus-diolag-note').text(data.Msg);
+                        }
+                    });
+            }
+        });
+
+        // Register, forgot password link clicked
+        $(".register-link,.forgot-password-link,.resend-confirm-email-link").click(function () {
+            var startDate = new Date('2015-12-11 10:29:00');
+            var endDate = new Date('2015-12-11 10:29:30');
+            var now = new Date();
+            if (now > startDate && now < endDate) {
+                swal({
+                    title: "HTML <small>系統公告</small>!",
+                    text: "<h3>親愛的使用者您好</h3> <label> 由於系統設備將於2015/12/12進行維護，</label><label>會影響本系統部分功能的使用，</label><label>造成不便敬請見諒</label>",
+                    html: true
+                });
+            } else {
+                if ($(this).hasClass('register-link')) {
+                    CloseLoginDialog();
+                    setTimeout(function () {
+                        OpenRegisterDialog();
+                    }, 400);
+
+                }
+                if ($(this).hasClass('forgot-password-link')) {
+                    CloseLoginDialog();
+                    setTimeout(function () {
+                        OpenForgotPasswordDialog();
+                    }, 400);
+
+                }
+                if ($(this).hasClass('resend-confirm-email-link')) {
+                    CloseLoginDialog();
+                    setTimeout(function () {
+                        OpenResendConfirmEmailDialog();
+                    }, 400);
+
+                }
+            }
+
+        });
+
+        // External Login
+        $('.facebook-login, .g-login').click(function () {
+            if ($(this).hasClass('facebook-login')) {
+                $('#ExternalLoginForm').find('input[name="provider"]').val('Facebook');
+            }
+            if ($(this).hasClass('g-login')) {
+                $('#ExternalLoginForm').find('input[name="provider"]').val('Google');
+            }
+            $('#ExternalLoginForm').submit();
+
+        });
+    });
+</script>
+
+
+<!-- dialog_會員註冊 BEGIN-->
+<div id="Register_DL" class="teBus-dialog-c" style="display:none">
+    <form id="RegisterForm">
+        
+        <div class="teBus-dialog register-c">
+            <h1 class="teBus-dialog-h1"><span class="teBus-dialog-title-img register-img" alt=" "></span>註冊</h1>
+            <span class="teBus-dialog-close-icon-c"><a href="javascript:void(0)" class="teBus-dialog-close-icon" title="關閉" alt="關閉"></a></span>
+            <ul class="teBus-dialog-ul">
+                <li class="teBus-dialog-li">
+                    <span class="teBus-dialog-li-title"> 電子郵件</span>
+                    <label><input autocomplete="off" class="teBus-dialog-input-text-one" data-val="true" data-val-email="電子郵件欄位不是有效的電子郵件地址。" data-val-required="電子郵件是必要項" id="Email" name="Email" title="ex. ebus-taipei@mail.com" type="text" value="" /></label>
+                    <a href="javascript:void(0)" class="register-a-one-icon register-check-icon" style="display:none"></a>
+                    <span class="field-validation-valid teBus-diolag-note" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+           
+                </li>
+                <li class="teBus-dialog-li">
+                    <span class="teBus-dialog-li-title">名稱</span>
+                    <label><input autocomplete="off" class="teBus-dialog-input-text-one" data-val="true" data-val-required="名稱是必要項" id="Nickname" name="Nickname" type="text" value="" /></label>
+                    <span class="field-validation-valid teBus-diolag-note" data-valmsg-for="Nickname" data-valmsg-replace="true"></span>
+                </li>
+                <li class="teBus-dialog-li">
+                    <span class="teBus-dialog-li-title">密碼</span>
+                    <label><input autocomplete="off" class="teBus-dialog-input-text-one" data-val="true" data-val-length="密碼必須至少6個字元長度" data-val-length-max="100" data-val-length-min="6" data-val-required="密碼是必要項" id="Password" name="Password" type="password" /></label>
+                    <span class="field-validation-valid teBus-diolag-note" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                </li>
+                <li class="teBus-dialog-li">
+                    <span class="teBus-dialog-li-title">確認密碼</span>
+                    <label><input autocomplete="off" class="teBus-dialog-input-text-one" data-val="true" data-val-equalto="兩次密碼輸入並不相同" data-val-equalto-other="*.Password" id="ConfirmPassword" name="ConfirmPassword" type="password" /></label>
+                    <span class="field-validation-valid teBus-diolag-note" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>
+                </li>
+                <!--li class="teBus-dialog-li">
+                    <span class="teBus-dialog-li-title">上傳照片</span>
+                    <label><input name="" type="text" value="" class="teBus-dialog-input-text-one"></label>
+                    <a href="javascript:void(0);" class="register-a-one-icon register-browse-icon">瀏覽</a>
+                    <div class="teBus-dialog-gust-photo-img" title="預覽照片" ><img src="images/dialog_gust_photo_img.svg" width="100%" alt="預覽照片"></div>
+                </li-->
+                <li class="teBus-dialog-li"  style=" margin:0 auto;width: 50%;">
+                    <span class="teBus-dialog-li-title">認證</span>
+                    <p class="teBus-diolag-note"></p>
+                    <div class="col-md-10">
+                        <div class="h-captcha" data-sitekey="e57803e5-35a9-40c1-92dc-889ae1a81fc8"></div>
+                        <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+                        </div>
+
+</li>
+            </ul>
+            <!--input type="submit" value="註冊" class="teBus-dialog-submit register-enter-submit"-->
+            <!--input type="submit" value="取消" class="teBus-dialog-submit register-close-submit"-->
+            <a href="javascript:void(0)" class="teBus-dialog-submit register-enter-submit">註冊</a>
+            <a href="javascript:void(0)" class="teBus-dialog-submit register-close-submit">取消</a>
+        </div>
+      
+    </form>
+</div>
+<!-- dialog_會員註冊 END-->
+
+<script>
+    function OpenRegisterDialog() {
+        $("#Register_DL").dialog('open');
+    }
+    function CloseRegisterDialog() {
+        $("#Register_DL").dialog('close');
+    }
+    function verifyCallback(token) {
+        alert(token)
+    }
+
+    $(function () {
+        $("#Register_DL").show();
+        $("#Register_DL").dialog({
+            autoOpen: false,
+            modal: true,
+            width: $("#Register_DL").find('.teBus-dialog').width(),
+            show: {
+                effect: "clip",
+                duration: 300
+            },
+            hide: {
+                effect: "clip",
+                duration: 300
+            },
+            close: function (event, ui) {
+                $("#RegisterForm").find('input[name="Email"]').val('');
+                $("#RegisterForm").find('input[name="Nickname"]').val('');
+                $("#RegisterForm").find('input[name="Password"]').val('');
+                $("#RegisterForm").find('input[name="ConfirmPassword"]').val('');
+            },
+            position: { my: "center", at: "center", of: window }
+        });
+        // Form subnit action
+        $(".register-enter-submit").click(function () {
+            debugger;
+            //$("#RegisterForm").find('input[name="recaptcha_challenge_field"]').closest('.teBus-dialog-li').find('.teBus-diolag-note').text('');
+            if ($('#RegisterForm').valid()) {
+                
+                $.ajax({
+                    url: '/Account/Register',
+                    dataType: "json",
+                    type: "post",
+                    data: {
+                        '__RequestVerificationToken': $('input[name=__RequestVerificationToken]').val(),
+                        'X-Requested-With': 'XMLHttpRequest',
+                        "Email": $("#RegisterForm").find('input[name="Email"]').val(),
+                        "Nickname": $("#RegisterForm").find('input[name="Nickname"]').val(),
+                        "Password": $("#RegisterForm").find('input[name="Password"]').val(),
+                        "ConfirmPassword": $("#RegisterForm").find('input[name="ConfirmPassword"]').val(),
+                        "Tel": '',
+                        "RecaptchaToken":$('#RegisterForm textarea').val()
+                            //$('.h-captcha iframe').data("hcaptcha-response")
+                            //$("iframe").attr("data-hcaptcha-response")
+                          //  $('[name=h-captcha-response]').val()
+                      
+                    },
+                    success: function (data) {
+                        if (data.ErrorCode === 200) {
+                            $(".register-close-submit").trigger('click');
+                            alert('Welcome! 歡迎申請[大台北公車]會員');
+                        }
+                        if (data.ErrorCode === 201) $("#RegisterForm").find('input[name="recaptcha_challenge_field"]').closest('.teBus-dialog-li').find('.teBus-diolag-note').text(data.Msg);
+                        if (data.ErrorCode === 202) $("#RegisterForm").find('input[name="Password"]').closest('.teBus-dialog-li').find('.teBus-diolag-note').text(data.Msg);
+                    }
+                });
+
+
+            }
+        });
+
+        $("#RegisterForm").find('input[name="Email"]').focusout(function () {
+            if ($("#RegisterForm").find('input[name="Email"]').valid())
+            $.ajax({
+                url: '/Account/AccountAvailable',
+                dataType: "json",
+                type: "post",
+                data: {
+                    '__RequestVerificationToken': $('input[name=__RequestVerificationToken]').val(),
+                    'X-Requested-With': 'XMLHttpRequest',
+                    "account": $("#RegisterForm").find('input[name="Email"]').val()
+                },
+                success: function (data) {
+                    if (data.ErrorCode === 100) {
+                        $(".register-check-icon").css("background-color", "#75bc59");
+                        $(".register-check-icon").text('✔');
+                        $(".register-check-icon").show();
+                    }
+                    if (data.ErrorCode === 101) {
+                        $(".register-check-icon").css("background-color", "#FF0000");
+                        $(".register-check-icon").text('✘');
+                        $(".register-check-icon").show();
+                    }
+                }
+            });
+        });
+
+        $(".register-close-submit").click(function () {
+
+            CloseRegisterDialog();
+
+        });
+    });
+</script>
+
+<!-- dialog_忘記密碼 BEGIN-->
+<div id="ForgetPw_DL" class="teBus-dialog-c" style="display:none">
+    <form id="ForgotPasswordForm">
+        <div class="teBus-dialog forgot-password-c">
+            <h1 class="teBus-dialog-h1"><span class="teBus-dialog-title-img forgot-password-img" alt=" "></span>忘記密碼</h1>
+            <span class="teBus-dialog-close-icon-c"><a href="javascript:void(0)" class="teBus-dialog-close-icon" title="關閉" alt="關閉"></a></span>
+            <ul class="teBus-dialog-ul">
+                <li class="teBus-dialog-li">
+                    <span class="teBus-dialog-li-title">電子郵件 </span>
+                    <label><input class="teBus-dialog-input-text-one" data-val="true" data-val-email="電子郵件欄位不是有效的電子郵件地址。" data-val-required="電子郵件是必要項" id="Email" name="Email" type="text" value="" /></label>
+                    <span class="field-validation-valid teBus-diolag-note" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                </li>
+                <li class="teBus-dialog-li"  style=" margin:0 auto;width: 50%;">
+                    
+                    
+                    <div class="h-captcha" data-sitekey="e57803e5-35a9-40c1-92dc-889ae1a81fc8"></div>
+                    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" class="teBus-dialog-submit forgot-password-enter-submit">送出</a>
+            <a href="javascript:void(0)" class="teBus-dialog-submit forgot-password-close-submit">取消</a>
+        </div>
+    </form>
+</div>
+<!-- dialog_忘記密碼 END-->
+
+<script>
+    function OpenForgotPasswordDialog() {
+        $("#ForgetPw_DL").dialog('open');
+    }
+    function CloseForgotPasswordDialog() {
+        $("#ForgetPw_DL").dialog('close');
+    }
+
+    $(function () {
+        $("#ForgetPw_DL").show();
+        $("#ForgetPw_DL").dialog({
+            autoOpen: false,
+            modal: true,
+            width: $("#ForgetPw_DL").find('.teBus-dialog').width(),
+            show: {
+                effect: "clip",
+                duration: 300
+            },
+            hide: {
+                effect: "clip",
+                duration: 300
+            },
+            close: function (event, ui) {
+                $("#ForgotPasswordForm").find('input[name="Email"]').val('');
+            },
+            position: { my: "center", at: "center", of: window }
+        });
+        $('.forgot-password-enter-submit').click(function () {
+            if ($('#ForgotPasswordForm').valid()) {
+                $.ajax({
+                    url: '/Account/ForgotPassword',
+                    dataType: "json",
+                    type: "post",
+                    data: {
+                        '__RequestVerificationToken': $('input[name=__RequestVerificationToken]').val(),
+                        'X-Requested-With': 'XMLHttpRequest',
+                        "Email": $("#ForgotPasswordForm").find('input[name="Email"]').val(),
+                        "RecaptchaToken": $('#ForgotPasswordForm textarea').val()
+                    },
+                    success: function (data) {
+                        if (data.ErrorCode === 300) {
+                            $(".forgot-password-close-submit").trigger('click');
+                            alert(data.Msg);
+                        }
+                        if (data.ErrorCode === 301 || data.ErrorCode === 103) $("#ForgotPasswordForm").find('input[name="Email"]').closest('.teBus-dialog-li').find('.teBus-diolag-note').text(data.Msg);
+                    }
+                });
+            }
+        });
+
+        $(".forgot-password-close-submit").click(function () {
+            CloseForgotPasswordDialog();
+        });
+    });
+</script>
+
+
+<script>
+    $(function () {
+        // Login link clicked
+        $(".login-link").click(function () { OpenLoginDialog(); });
+    });
+</script>
+
+        <!--end main list -->
+        
+<input name="__RequestVerificationToken" type="hidden" value="Tix-526flVLjlGHZq0dCG7IoA94JnnJf2KbC26GlGp-cQYRe8r7wlZt9xCGBYyH_mpJquTyOW4TwWkR9pJ4aGbm6jUA1" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54651832-1', { 'cookieDomain': 'none' });
+  ga('set', 'language', 'zh-TW');
+  ga('set', 'screenResolution', screen.width + 'x' + screen.height);
+  ga('set', 'viewportSize', screen.availWidth + 'x' + screen.availHeight);
+  ga('set', 'screenColors', screen.colorDepth + '-bits');
+  ga('set', 'hostname', location.hostname);
+
+  ga('send', 'pageview');
+  ga('send', 'event', {
+      'eventCategory': 'PageView',
+      'eventAction': 'Inter',
+      'eventLabel': document.location.pathname,
+      'eventValue': 1
+  });
+
+</script>
+
+<script>
+    $(function () {
+        var token = $('input[name=__RequestVerificationToken]').filter(function () { return $(this).val() !== '' });
+        $('input[name=__RequestVerificationToken]').val(token.val());
+    });
+</script>
+
+    <script>
+        $(function () {
+            $('#sectionMain').show();
+        });
+    </script>
+
+<script>
+    $(function () {
+    var alertPageNum = '2';
+        $.ajax({
+            url: '/NewsAlert/GetAlertNews',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                '__RequestVerificationToken': $('input[name=__RequestVerificationToken]').val(),
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            error: function (response) {
+            },
+            success: function (response) {
+                response.forEach(function (info) {
+                    var s = info.AlertPageList.split(';');
+                    s.forEach(function (v) {
+                        if (v == alertPageNum) {
+                            var img = '';
+                            if (info.AlertPicLink != null && info.AlertPicLink.length > 0)
+                            {
+                                //img = '<img src="' + info.AlertPicLink + '"   ><br/>';
+                                img = '<img class="swal2-image" src="' + info.AlertPicLink + '" alt="">';
+                                //img = info.AlertPicLink;
+                            }
+
+                            if (localStorage.getItem("FnAlertId" + info.Id) != "true")
+                                Swal.fire({
+                                    title: '<font color="#E78838">' + info.AlertContent + '</font>',
+                                    html: img,
+                                    //imageUrl: img,
+                                    async: false,
+                                    confirmButtonText: '確定',
+                                    input: 'checkbox',
+                                    inputPlaceholder: '不再提示'
+                                }).then((result) => {
+                                    /* Read more about isConfirmed, isDenied below */
+                                    if (result.isConfirmed) {
+                                        if (result.value) {
+                                            localStorage.setItem("FnAlertId" + info.Id, "true");
+                                        } else { }
+                                    } else if (result.isDenied) {
+                                        //Swal.fire('Changes are not saved', '', 'info')
+                                    }
+                                });//end swal
+                        }
+                    });
+
+                });//for
+            },
+            complete: function () {
+              
+            }
+        });
+    });
+
+</script>
+<section class="info-c route-list" id="sectionMain" style="display:none;">
+    <div id="findPanel" class="word-info-c stationlist-c">
+        <h2>查詢結果</h2>
+        <div class="search-c">
+            <div class="stationlist-text-c">
+                                <img src="/images/new_taipei_city.svg" width="100%" class="vipstop-city" alt="新北市">                
+ <span class="stationlist-title">F721 </span>                 
+
+                        <a href="../EBus/VsSimpleMap?routeid=0454072100" class="stationlist-move-route-icon stationlist-move-table-icon @*pad-none*@" title="動態簡圖" alt="動態簡圖"></a>
+                    <a href="../MapOverview?nid=0454072100" target="_blank" class="stationlist-move-route-icon stationlist-route-list-icon" style="width:90px;height:30px;position:relative;" title="路線圖" alt="路線圖"></a>
+                        <a href="javascript:void(0);" class="stationlist-move-route-icon stationlist-bus-info-table-icon " title="公車資訊" alt="公車資訊"></a>
+                        <a href="javascript:void(0);" class="stationlist-move-route-icon stationlist-bus-time-icon" title="時刻表" alt="時刻表"></a>
+
+                    <br />
+
+
+                            <a style="color:#4CAF50;">新北市政府交通局公車申訴服務電話02-89682460</a></div>
+            <ul class="stationlist-move-route-bus-info" style="display: none;">
+                <li>
+                    <span class="stationlist-move-route-bus-item">起迄站名 :</span>
+                    <span class="stationlist-move-route-bus-content">坪林國中 - 南山寺</span>
+                </li>
+                <li>
+                    <span class="stationlist-move-route-bus-item-02">頭末班車 :</span>
+                    <span class="stationlist-move-route-bus-content">
+                        [平日] 停駛 <br>
+                        [假日] 0800 - 1600
+                    </span>
+                </li>
+                <li>
+                    <span class="stationlist-move-route-bus-item-02">發車間隔 :</span>
+                    <span class="stationlist-move-route-bus-content">
+[平日] <br /> <br>
+[假日]<br /> F721南山寺至坪林國中班表:1000 1100 1200 1400 1500 1700<br/>F721坪林國中至南山寺班表:0900 1000 1100 1300 1400 1600<br/>F721坪林國中至闊瀨班表:0800 1200 1500<br/>F721闊瀨至坪林國中班表:0900 1300 1600<br>
+                    </span>
+                </li>
+                <li>
+                    <span class="stationlist-move-route-bus-item">分段緩衝 :</span>
+                    <span class="stationlist-move-route-bus-content"></span>
+                </li>
+                <li>
+                    <span class="stationlist-move-route-bus-item">收費方式 :</span>
+                    <span class="stationlist-move-route-bus-content"></span>
+                </li>
+                <li>
+                    <span class="stationlist-move-route-bus-item">業者服務電話 :</span>
+                        <span class="stationlist-move-route-bus-content">坪林區公所坪林區公所站:(02)2665-7251</span>
+                </li>
+
+                    <li>
+                        <span class="stationlist-move-route-bus-item">備註 :</span>
+                        <span class="stationlist-move-route-bus-content">平常日停駛</span>
+                    </li>
+            </ul>
+                <p class="stationlist-come-go-c">
+                    <a href="javascript:void(0);" class="stationlist-come-go stationlist-go">去程往 南山寺</a>
+                    <a href="javascript:void(0);" class="stationlist-come-go-gray stationlist-come">返程往 坪林國中</a>
+                </p>
+
+
+            <p> 
+<a style="color:#4CAF50; word-spacing:20px;margin-top:5px;box-shadow: 0 1px;padding-bottom:3px;" href="./StopsOfRoute?routeid=0454072101" >①去程延駛闊瀨</a> <a style="color:#4CAF50; word-spacing:20px;margin-top:5px;box-shadow: 0 1px;padding-bottom:3px;" href="./StopsOfRoute?routeid=0454072102" >②返程延駛闊瀨</a> </p>
+        </div>
+
+        <div id="GoDirectionRoute" class="auto-list-pool-c stationlist-list-pool-c" >
+            <ul class="auto-list-pool stationlist-list-pool">
+
+                        <li>
+                            <a href="javascript:void(0);" class="auto-list-link auto-list-stationlist-link">
+                                <span class="auto-list auto-list-stationlist">
+                                    <span class="auto-list-stationlist-position auto-list-stationlist-position-time"></span>
+                                    <span class="auto-list-stationlist-number"> 1</span>
+                                    <span class="auto-list-stationlist-place">坪林國中</span>
+                                    <input id="item_UniStopId" name="item.UniStopId" type="hidden" value="2324100600" />
+                                    <input data-val="true" data-val-number="欄位 Latitude 必須是數字。" data-val-required="Latitude 欄位是必要項。" id="item_Latitude" name="item.Latitude" type="hidden" value="24.93705" />
+                                    <input data-val="true" data-val-number="欄位 Longitude 必須是數字。" data-val-required="Longitude 欄位是必要項。" id="item_Longitude" name="item.Longitude" type="hidden" value="121.712961" />
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="auto-list-link auto-list-stationlist-link">
+                                <span class="auto-list auto-list-stationlist">
+                                    <span class="auto-list-stationlist-position auto-list-stationlist-position-time"></span>
+                                    <span class="auto-list-stationlist-number"> 2</span>
+                                    <span class="auto-list-stationlist-place">漁光國小</span>
+                                    <input id="item_UniStopId" name="item.UniStopId" type="hidden" value="2324200420" />
+                                    <input id="item_Latitude" name="item.Latitude" type="hidden" value="24.959964" />
+                                    <input id="item_Longitude" name="item.Longitude" type="hidden" value="121.73678" />
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="auto-list-link auto-list-stationlist-link">
+                                <span class="auto-list auto-list-stationlist">
+                                    <span class="auto-list-stationlist-position auto-list-stationlist-position-time"></span>
+                                    <span class="auto-list-stationlist-number"> 3</span>
+                                    <span class="auto-list-stationlist-place">南山寺</span>
+                                    <input id="item_UniStopId" name="item.UniStopId" type="hidden" value="2324100900" />
+                                    <input id="item_Latitude" name="item.Latitude" type="hidden" value="24.967183" />
+                                    <input id="item_Longitude" name="item.Longitude" type="hidden" value="121.727459" />
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="auto-list-link auto-list-stationlist-link">
+                                <span class="auto-list auto-list-stationlist">
+                                    <span class="auto-list-stationlist-position auto-list-stationlist-position-time"></span>
+                                    <span class="auto-list-stationlist-number"> 4</span>
+                                    <span class="auto-list-stationlist-place">漁光國小</span>
+                                    <input id="item_UniStopId" name="item.UniStopId" type="hidden" value="2324200420" />
+                                    <input id="item_Latitude" name="item.Latitude" type="hidden" value="24.959964" />
+                                    <input id="item_Longitude" name="item.Longitude" type="hidden" value="121.73678" />
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="auto-list-link auto-list-stationlist-link">
+                                <span class="auto-list auto-list-stationlist">
+                                    <span class="auto-list-stationlist-position auto-list-stationlist-position-time"></span>
+                                    <span class="auto-list-stationlist-number"> 5</span>
+                                    <span class="auto-list-stationlist-place">英速魔法學院</span>
+                                    <input id="item_UniStopId" name="item.UniStopId" type="hidden" value="2324200540" />
+                                    <input id="item_Latitude" name="item.Latitude" type="hidden" value="24.964998" />
+                                    <input id="item_Longitude" name="item.Longitude" type="hidden" value="121.769517" />
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="auto-list-link auto-list-stationlist-link">
+                                <span class="auto-list auto-list-stationlist">
+                                    <span class="auto-list-stationlist-position auto-list-stationlist-position-time"></span>
+                                    <span class="auto-list-stationlist-number"> 6</span>
+                                    <span class="auto-list-stationlist-place">闊瀨</span>
+                                    <input id="item_UniStopId" name="item.UniStopId" type="hidden" value="2324200630" />
+                                    <input id="item_Latitude" name="item.Latitude" type="hidden" value="24.968742" />
+                                    <input id="item_Longitude" name="item.Longitude" type="hidden" value="121.7783" />
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+        <div id="BackDirectionRoute" class="auto-list-pool-c stationlist-list-pool-c"   style = "display:none">
+            <ul class="auto-list-pool stationlist-list-pool">
+
+                        <li>
+                            <a href="javascript:void(0);" class="auto-list-link auto-list-stationlist-link">
+                                <span class="auto-list auto-list-stationlist">
+                                    <span class="auto-list-stationlist-position auto-list-stationlist-position-time"></span>
+                                    <span class="auto-list-stationlist-number"> 1</span>
+                                    <span class="auto-list-stationlist-place">闊瀨</span>
+                                    <input id="item_UniStopId" name="item.UniStopId" type="hidden" value="2324200630" />
+                                    <input id="item_Latitude" name="item.Latitude" type="hidden" value="24.968742" />
+                                    <input id="item_Longitude" name="item.Longitude" type="hidden" value="121.7783" />
+                                   
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="auto-list-link auto-list-stationlist-link">
+                                <span class="auto-list auto-list-stationlist">
+                                    <span class="auto-list-stationlist-position auto-list-stationlist-position-time"></span>
+                                    <span class="auto-list-stationlist-number"> 2</span>
+                                    <span class="auto-list-stationlist-place">英速魔法學院</span>
+                                    <input id="item_UniStopId" name="item.UniStopId" type="hidden" value="2324200540" />
+                                    <input id="item_Latitude" name="item.Latitude" type="hidden" value="24.964998" />
+                                    <input id="item_Longitude" name="item.Longitude" type="hidden" value="121.769517" />
+                                   
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="auto-list-link auto-list-stationlist-link">
+                                <span class="auto-list auto-list-stationlist">
+                                    <span class="auto-list-stationlist-position auto-list-stationlist-position-time"></span>
+                                    <span class="auto-list-stationlist-number"> 3</span>
+                                    <span class="auto-list-stationlist-place">漁光國小</span>
+                                    <input id="item_UniStopId" name="item.UniStopId" type="hidden" value="2324200420" />
+                                    <input id="item_Latitude" name="item.Latitude" type="hidden" value="24.959964" />
+                                    <input id="item_Longitude" name="item.Longitude" type="hidden" value="121.73678" />
+                                   
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="auto-list-link auto-list-stationlist-link">
+                                <span class="auto-list auto-list-stationlist">
+                                    <span class="auto-list-stationlist-position auto-list-stationlist-position-time"></span>
+                                    <span class="auto-list-stationlist-number"> 4</span>
+                                    <span class="auto-list-stationlist-place">南山寺</span>
+                                    <input id="item_UniStopId" name="item.UniStopId" type="hidden" value="2324100920" />
+                                    <input id="item_Latitude" name="item.Latitude" type="hidden" value="24.967221" />
+                                    <input id="item_Longitude" name="item.Longitude" type="hidden" value="121.727296" />
+                                   
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="auto-list-link auto-list-stationlist-link">
+                                <span class="auto-list auto-list-stationlist">
+                                    <span class="auto-list-stationlist-position auto-list-stationlist-position-time"></span>
+                                    <span class="auto-list-stationlist-number"> 5</span>
+                                    <span class="auto-list-stationlist-place">漁光國小</span>
+                                    <input id="item_UniStopId" name="item.UniStopId" type="hidden" value="2324200440" />
+                                    <input id="item_Latitude" name="item.Latitude" type="hidden" value="24.959872" />
+                                    <input id="item_Longitude" name="item.Longitude" type="hidden" value="121.73664" />
+                                   
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="auto-list-link auto-list-stationlist-link">
+                                <span class="auto-list auto-list-stationlist">
+                                    <span class="auto-list-stationlist-position auto-list-stationlist-position-time"></span>
+                                    <span class="auto-list-stationlist-number"> 6</span>
+                                    <span class="auto-list-stationlist-place">坪林國中</span>
+                                    <input id="item_UniStopId" name="item.UniStopId" type="hidden" value="2324100660" />
+                                    <input id="item_Latitude" name="item.Latitude" type="hidden" value="24.937332" />
+                                    <input id="item_Longitude" name="item.Longitude" type="hidden" value="121.712939" />
+                                   
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+    <!-- being 地圖區塊縮合 -->
+    
+
+<link href="/jss/leaflet/leaflet.css" rel="stylesheet" />
+<script src="/jss/leaflet/leaflet.js"></script>
+<script src="/jss/leaflet/wicket.js"></script>
+<script src="/jss/leaflet/wicket-leaflet.js"></script>
+<script src="/jss/LMap.js"></script>
+<script src="/jss/LMapLayerToggle.js"></script>
+
+
+<!-- being 地圖區塊縮合 -->
+<div class="map-s-c">
+    <a href="javascript:void(0);" id="close-open-map" class="open-map-icon pad-none" title="展開地圖" alt="展開地圖"></a>
+    <div class="map-date">
+        <div class="map-icon-pool-c">
+            <div class="map-icon-pool">
+                <a href="javascript:void(0);" class="map-icon map-youbike" title="YouBike" alt="YouBike"></a>
+                
+                <a href="javascript:void(0);" class="map-icon map-my-place" title="&lt;我的位置&gt;" alt="&lt;我的位置&gt;"></a>
+               <!-- <a href="javascript:void(0);" id="MapButton" class="map-icon map-map" title="開啟地圖" alt="開啟地圖"></a>-->
+            </div>
+        </div>
+        <div id="map_canvas" class="map">
+            <a href="javascript:void(0);"  style="color: #0094ff" id="maplink" title="開啟地圖" alt="開啟地圖">開啟地圖</a>
+           
+        </div>
+    </div>
+</div>
+<style>
+    .word-info-none {
+        display: none;
+    }
+</style>
+<script>
+    $('#close-open-map').click(function () {
+        $('#close-open-map').toggleClass("close-map-icon pad-none");
+        $('.map-s-c').toggleClass("map-b-c pad-none");
+        $('#findPanel').toggleClass("word-info-none");
+
+        var cls = $('#close-open-map').attr('class');
+        if (cls == "open-map-icon close-map-icon") {
+            $('#close-open-map').attr("title", i18n._('Shrink the map'));
+            $('#close-open-map').attr("alt", i18n._('Shrink the map'));
+        }
+        else{
+            $('#close-open-map').attr("title", i18n._('Enlarge the map'));
+            $('#close-open-map').attr("alt", i18n._('Enlarge the map'));
+        }
+
+        MoveCenter();
+    });
+
+    //地圖縮放用
+    function MoveCenter() {
+        map.invalidateSize();
+    };
+
+    $('.map-youbike').click(function () {
+        $('.map-youbike').toggleClass("map-youbike-o");
+        var bl = $('.map-youbike').hasClass("map-youbike-o");
+
+        if (bl) YoubikeFetch();
+        else StopFetchYoubike();
+    });
+
+    $('.map-newbike').click(function () {
+        $('.map-newbike').toggleClass("map-newbike-o");
+        var bl = $('.map-newbike').hasClass("map-newbike-o");
+
+        if (bl) NewbikeFetch();
+        else StopFetchNewbike();
+    });
+
+    $('.map-my-place').click(function () {
+        $('.map-my-place').toggleClass("map-my-place-o");
+        var bl = $('.map-my-place').hasClass("map-my-place-o");
+
+        if (bl) getLocation();
+        else clearNowLocMarkers()
+    });
+
+    function newloadmap()
+    {
+
+    }
+
+    $('.map-map').click(function () {
+        var options = {
+            zoom: 10,
+            center: centerPoint,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: false,
+            zoomControl: true,
+            zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.SMALL
+            },
+            styles: [{ featureType: "landscape", stylers: [{ saturation: -100 }, { lightness: 60 }] }, { featureType: "road.local", stylers: [{ saturation: -100 }, { lightness: 40 }, { visibility: "on" }] }, { featureType: "transit", stylers: [{ saturation: -100 }, { visibility: "simplified" }] }, { featureType: "administrative.province", stylers: [{ visibility: "off" }] }, { featureType: "water", stylers: [{ visibility: "on" }, { lightness: 30 }] }, { featureType: "road.highway", elementType: "geometry.fill", stylers: [{ color: "#ef8c25" }, { lightness: 40 }] }, { featureType: "road.highway", elementType: "geometry.stroke", stylers: [{ visibility: "off" }] }, { featureType: "poi.park", elementType: "geometry.fill", stylers: [{ color: "#b6c54c" }, { lightness: 40 }, { saturation: -40 }] }, {}]
+        };
+        $("#MapButton").hide();
+        map = new google.maps.Map(document.getElementById("map_canvas"), options);
+
+        // 畫路線軌跡
+        drawRouteTrack();
+
+        var routePathBounds = new google.maps.LatLngBounds();
+        var path = new google.maps.MVCArray();
+
+        if (objArr.RouteTracks.length != 0) {
+            for (var i = 0; i < objArr.RouteTracks.length; i++) {
+                var latlng = new google.maps.LatLng(objArr.RouteTracks[i]
+                    .Latitude,
+                    objArr.RouteTracks[i].Longitude);
+                path.push(latlng);
+                routePathBounds.extend(latlng);
+            }
+            routePath.setPath(path);
+            if (map == null)
+            { }
+            else {
+                map.fitBounds(routePathBounds);
+            }
+        }
+
+        pointRouteStops(true);
+        routePath.setOptions({ strokeColor: '#9863b6' });
+
+
+        if (objArr.RouteTracks.length != 0) {
+            if (map == null)
+            { }
+            else {
+                map.fitBounds(routePathBounds);
+            }
+        }
+        stopStationStatusReport();
+        stationStatusReport();
+        stopBusStatusReport();
+        busStatusReport();
+
+    });
+
+    $('#maplink').click(function () {
+        var options = {
+            zoom: 10,
+            center: centerPoint,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: false,
+            zoomControl: true,
+            zoomControlOptions: {
+                style: google.maps.ZoomControlStyle.SMALL
+            },
+            styles: [{ featureType: "landscape", stylers: [{ saturation: -100 }, { lightness: 60 }] }, { featureType: "road.local", stylers: [{ saturation: -100 }, { lightness: 40 }, { visibility: "on" }] }, { featureType: "transit", stylers: [{ saturation: -100 }, { visibility: "simplified" }] }, { featureType: "administrative.province", stylers: [{ visibility: "off" }] }, { featureType: "water", stylers: [{ visibility: "on" }, { lightness: 30 }] }, { featureType: "road.highway", elementType: "geometry.fill", stylers: [{ color: "#ef8c25" }, { lightness: 40 }] }, { featureType: "road.highway", elementType: "geometry.stroke", stylers: [{ visibility: "off" }] }, { featureType: "poi.park", elementType: "geometry.fill", stylers: [{ color: "#b6c54c" }, { lightness: 40 }, { saturation: -40 }] }, {}]
+        };
+        $("#MapButton").hide();
+        map = new google.maps.Map(document.getElementById("map_canvas"), options);
+
+        // 畫路線軌跡
+        drawRouteTrack();
+
+        var routePathBounds = new google.maps.LatLngBounds();
+        var path = new google.maps.MVCArray();
+
+        if (objArr.RouteTracks.length != 0) {
+            for (var i = 0; i < objArr.RouteTracks.length; i++) {
+                var latlng = new google.maps.LatLng(objArr.RouteTracks[i]
+                    .Latitude,
+                    objArr.RouteTracks[i].Longitude);
+                path.push(latlng);
+                routePathBounds.extend(latlng);
+            }
+            routePath.setPath(path);
+            if (map == null)
+            { }
+            else {
+                map.fitBounds(routePathBounds);
+            }
+        }
+
+        pointRouteStops(true);
+        routePath.setOptions({ strokeColor: '#9863b6' });
+
+
+        if (objArr.RouteTracks.length != 0) {
+            if (map == null)
+            { }
+            else {
+                map.fitBounds(routePathBounds);
+            }
+        }
+        stopStationStatusReport();
+        stationStatusReport();
+        stopBusStatusReport();
+        busStatusReport();
+
+    });
+
+
+</script>
+    <!-- end 地圖區塊縮合 -->
+
+</section>
+
+<section class="info-c route-chart" style="display:none;">
+    <!--路線簡圖-->
+</section>
+
+<div id="Toolbar" class="teBus-dialog-c" style="display:none">
+    <div class="teBus-dialog tool-dialog-c">
+        <h1 class="teBus-dialog-h1"><span class="teBus-dialog-title-img tool-dialog-img" alt=" "></span>快捷工具列</h1>
+        <span class="teBus-dialog-close-icon-c"><a href="javascript:void(0);" class="teBus-dialog-close-icon" title="關閉"></a></span>
+        <div class="tool-icon-pool">
+            <a id="routeList" href=javascript:void(0) class="teBus-login-dialog-link-one"><img src="/images/dialog_route_icon.svg" width="100%" alt="行經路線">行經路線</a>
+            <a id="busAlert" href=javascript:void(0) class="teBus-login-dialog-link-one"><img src="/images/dialog_remind_icon.svg" width="100%" alt="到站提醒">到站提醒</a>
+            <a id="addToMybus" href=javascript:void(0) class="teBus-login-dialog-link-one"><img src="/images/dialog_add_bus_icon.svg" width="100%" alt="加入我的公車">加入我的公車</a>
+            <a class="teBus-login-dialog-link-one-recent3" id="recent3">
+                <font>
+                    .</font><br />
+                    <font>
+                        .</font><br />
+                        <font">.</font><br />
+            </a>
+</div>
+    </div>
+</div>
+
+<input type="hidden" id="selected_stop_id" />
+<input type="hidden" id="selected_stop_name" />
+<div id="SetAlertTime" class="teBus-dialog-c" style="display:none">
+    <div class="teBus-dialog news-dialog-c">
+        <h1 class="teBus-dialog-h1"><span class="teBus-dialog-title-img remind-dialog-img" alt=" "></span>設定到站提醒通知</h1>
+        <span class="teBus-dialog-close-icon-c"><a href="javascript:void(0);" class="teBus-dialog-close-icon" title="關閉" alt="關閉"></a></span>
+        <div class="set-up-remind-dialog-c">
+            <a href="javascript:setAlertConfirm(180);" class="set-up-remind-time-dialog">3分鐘前提醒</a>
+            <a href="javascript:setAlertConfirm(300);" class="set-up-remind-time-dialog">5分鐘前提醒</a>
+            <a href="javascript:setAlertConfirm(600);" class="set-up-remind-time-dialog">10分鐘前提醒</a>
+            <a href="javascript:setAlertConfirm(900);" class="set-up-remind-time-dialog">15分鐘前提醒</a>
+            <a href="javascript:setAlertConfirm(1200);" class="set-up-remind-time-dialog">20分鐘前提醒</a>
+        </div>
+    </div>
+</div>
+<div id="News_Detail_DL" class="teBus-dialog-c" style="display:none">
+    <div class="teBus-dialog news-dialog-c">
+        <h1 class="teBus-dialog-h1"><span class="teBus-dialog-title-img remind-dialog-img" alt=" "></span>到站提醒通知</h1>
+        <span class="teBus-dialog-close-icon-c"><a href="javascript:void(0);" class="teBus-dialog-close-icon" title="關閉" alt="關閉"></a></span>
+        <div class="remind-dialog-c">
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        window.setInterval(StartBusArrivalAlert, 1000 * 60);
+
+        $("#News_Detail_DL").dialog({
+            autoOpen: false,
+            width: $('#News_Detail_DL').width(),
+            modal: true,
+            show: {
+                effect: "clip",
+                duration: 600
+            },
+            buttons: {},
+            hide: {
+                effect: "clip",
+                duration: 500
+            },
+            close: function (event, ui) {
+                $('#News_Detail_DL').find('.remind-dialog-c').html('');
+            }
+        });
+
+        $(".ui-dialog-titlebar").hide();
+    });
+    function StartBusArrivalAlert() {
+        if (localStorage.bus_alert !== undefined && !$("#News_Detail_DL").dialog("isOpen")) {
+            var busAlert = JSON.parse(localStorage.bus_alert);
+            var m = $.map(busAlert, function (value, index) {
+                return { "UniStationId": value.StopId, "UniRouteId": value.RouteId, "UniBusId": "", "BusLicence": "", "BusType": 0, "RouteDirect": 0, "ETA": 0 };
+            });
+            $.ajax({
+                url: '/Stop/StatusOfRutStp',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    '__RequestVerificationToken': $('input[name=__RequestVerificationToken]').val(),
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'models': JSON.stringify(m)
+                },
+                error: function (response) {
+
+                },
+                success: function (response) {
+                    $.each(busAlert, function (idx, val) {
+                        $.each(response, function (index, value) {
+                            if (value.ETA !== 0 && val.RouteId === value.UniRouteId &&
+                                val.StopId === value.UniStationId && val.SetTime > value.ETA) {
+                                $('#News_Detail_DL').find('.remind-dialog-c').append(
+                                    $('<p/>', { 'class': 'remind-content-dialog', 'text': val.RouteName + " " + val.StopName }),
+                                    $('<p/>', { 'class': 'remind-time-dialog', 'text': i18n._('Estimate') + Math.floor(value.ETA / 60) + i18n._('Arrives minute(s)') })
+                                );
+                                for (var i = 0; i < busAlert.length; i++) {
+                                    if (busAlert[i].RouteId == value.UniRouteId && busAlert[i].StopId == value.UniStationId && val.SetTime > value.ETA) {
+                                        busAlert.splice(i, 1);
+                                    }
+                                    AlertDelete(i);
+                                }
+                                localStorage.setItem('bus_alert', JSON.stringify(busAlert));
+                            }
+                        });
+                        if ($('#News_Detail_DL').find('.remind-dialog-c').html().trim() !== '') {
+                            if (!$("#News_Detail_DL").dialog("isOpen")) {
+                                $("#News_Detail_DL").dialog("open");
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    }
+</script>
+
+<div id="AddToMyBus" class="teBus-dialog-c" style="display:none;">
+    <div class="teBus-dialog alternative-route-dialog-c">
+        <h1 class="teBus-dialog-h1">選擇公車群組</h1>
+        <span class="teBus-dialog-close-icon-c"><a href="#" class="teBus-dialog-close-icon" title="關閉"></a></span>
+        <ul class="dialog-chose-bos-group-pool"></ul>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    <!-- end content -->
+    <!-- loading dialog -->
+    <div id="Loading_DL" class="teBus-dialog-c" style="display: none;">
+        <div class="teBus-dialog loading-dialog-c">
+            <p class="loading-dialog-p"><img src="/images/dialog_loading_bus_img.gif" class="loading-dialog-img" width="100%" alt=" ">資料載入中，請稍候</p>
+        </div>
+    </div>
+    <!-- end loading dialog -->
+    
+<footer class="teBUS-main-footer">
+    <div class="teBUS-main-footer-logo">
+                <a href="https://www.gov.taipei/" target="_blank" class="teBUS-main-footer-taipei" title="臺北市政府" alt="臺北市政府"><img src="/images/taipei_city.svg" width="100%" title="臺北市政府" alt="臺北市政府"></a>
+                <a href="https://www.ntpc.gov.tw/" target="_blank" class="teBUS-main-footer-new-taipei" title="新北市政府" alt="新北市政府"><img src="/images/new_taipei_city.svg" width="100%" title="新北市政府" alt="新北市政府"></a>
+
+      
+        <span class="teBUS-main-footer-ebus-logo" title="大臺北公車"><img src="/images/logo_img02.svg" width="100%" title="大臺北公車" alt="大臺北公車"></span>
+    </div>
+    <div class="teBUS-main-footer-text">
+        <p class="teBUS-main-footer-Copyright">本網站所有版權歸屬於臺北市政府與新北市政府 Copyright&#169;2014<span></span></p>
+        <p>
+            建議瀏覽器IE9.0以上版本/Firefox/Google Chrome (最佳螢幕解析1024*768) <br />
+            如有大臺北公車網站服務任何問題，請撥1999為您服務
+            聯絡地址:110210臺北市信義區松德路300號4樓
+        </p>
+    </div>
+    <div class="teBUS-main-footer-link-pool">
+        <a href="/Home/WebSite" class="teBUS-main-footer-link" target="_self">網站導覽</a>
+        
+        <a href="/Home/CopyrightNotice" class="teBUS-main-footer-link" target="_self">著作權聲明</a>
+        <a href="/Home/SecurityPrivacyPolicy" class="teBUS-main-footer-link" target="_self">隱私權及網站安全政策</a>
+        <p class="teBUS-main-footer-date">網站更新日期:<span>2025-05-26</span><br />網站檢視日期:2025-05-26</p>
+    </div>
+</footer>
+<!-- end footer -->
+
+    <script src="/bundles/modernizr?v=wBEWDufH_8Md-Pbioxomt90vm6tJN2Pyy9u9zHtWsPo1"></script>
+
+    
+    <script src="/jss/tebus-script.js"></script>
+    <script src="/bundles/sweetAlert?v=cMcnF9PMfZnW6d_oMLsRilV8d-Fh8HT8X6rfi8S_EV41"></script>
+
+    <script src="/sweetAlert/css?v=Q7l7a83fZdl7_6jt13P3HsHoLWvbYv1YpqCreuQlPuQ1"></script>
+
+    <script src="/bundles/sweetAlert2?v=PwfQxO_e6ZEtKGd2oGReTt3SIS48xCdv8zRgwComWDA1"></script>
+
+    <script src="/sweetAlert2/css?v=fJb18S8FvSIfJsXWl8pwQn02lsvJyZVA2V9a_xRxskI1"></script>
+
+    
+    <script src="/bundles/customScrollbar?v=FNWrR0EcYik_CfSZ44D3T7EmJWx0Sy8nttPc_daLKEU1"></script>
+
+    <script src="/bundles/busInfoHelper?v=Bz-GVCVvhrGERqTqUhEyiA19qHoesHwpCKpDnLmBTC81"></script>
+
+    <script src="/bundles/busArrivalAlert?v=MDKgeaTn7JrPx59avQagl_lTQuO4AjqKyXZGq_1HMcs1"></script>
+
+    <script src="/bundles/jqueryval?v=kO9SZjRLUEvNZbFlwaT1hsJ0t0ngQHk32HeNdumCbRM1"></script>
+
+    <script src="/bundles/toastr?v=nU7i1d5lsXeim4T9MB2Gdegj9fc8yXl1nK6hEZMOAm81"></script>
+
+    
+<style>
+.marker-g {
+    background-image: url("../images/mapIcon/station_01.png");
+    background-size:24px 24px;
+	/*background-color: rgba(218, 94, 94, 0.6);*/
+	}
+    .marker-b {
+    background-image: url("../images/mapIcon/station_02.png");
+    background-size:24px 24px;
+	/*background-color: rgba(218, 94, 94, 0.6);*/
+	}
+    .custompopup .leaflet-popup-content-wrapper a {
+    color: #ffffff;
+}
+    .custompopup .leaflet-popup-content p{
+    margin: 0;
+}
+    
+
+
+    </style>
+
+<script src="/jss/VsSimpleMap.js"></script>
+
+    <script>
+
+        viccknCulture = 'zh-TW';
+        //var InfoBox = new google.maps.InfoWindow({ content: " " });
+        var routePath;
+        var Marker_Bus_Status = [];
+        var busFetchInterval = null;
+        var stopFetchInterval = null;
+        var goStopStationNum = []; //去程站位數量
+        var backStopStationNum = []; //返程站位數量
+
+
+
+        //#region 時刻表
+        $('.stationlist-bus-time-icon').click(function () {
+            var _date = new Date();
+            var _nowDate = _date.getFullYear() + "/" +( _date.getMonth()+1) + "/" + _date.getDate();
+            //var _url = "http://web.taiwanbus.tw/eBUS/subsystem/Timetable/TimeTableAPIByWeek.aspx?RouteId=" + "" + "&SearchDate=" + _nowDate;
+            var _url = "../Route/RouteSchedule?routeid=0454072100";
+
+            window.open(_url, "_blank");
+        });
+        //#endregion
+
+
+        var existGoNum = 6;
+        var existBackNum = 6;
+
+        function getStopStationNum(goBack) {
+            switch (goBack) {
+                case 1:
+                    var go = $("#GoDirectionRoute div > div > li > a > span > span.auto-list-stationlist-number")
+                        .text()
+                        .trim()
+                        .split(' ')
+                        .filter(function(v){return v!==''})
+                        .map(function(item, index) { return parseInt(item) });
+
+                    if (go && go.length === existGoNum) {
+                        goStopStationNum = go;
+                    }
+
+                    goStopStationNum = $("#GoDirectionRoute div > div > li > a > span > span.auto-list-stationlist-number")
+                        .text()
+                        .trim()
+                        .split(' ')
+                        .filter(function(v){return v!==''})
+                        .map(function(item, index) { return parseInt(item) });
+                    break;
+                case 2:
+                    var back = $("#BackDirectionRoute div > div > li > a > span > span.auto-list-stationlist-number")
+                        .text()
+                        .trim()
+                        .split(' ')
+                        .filter(function(v){return v!==''})
+                        .map(function(item, index) { return parseInt(item) });
+
+                    if (back && back.length === existBackNum) {
+                        backStopStationNum = back;
+                    }
+
+                    break;
+
+            }
+        }
+
+        getStopStationNum(1);
+        getStopStationNum(2);
+
+        function bindInfoWindow(marker, map, InfoBox, content) {
+            google.maps.event.addListener(marker,
+                'click',
+                function() {
+                    InfoBox.setContent(content);
+                    InfoBox.open(map, marker);
+                });
+        }
+
+        function createBusMarker(lat, lng, title, icon) {
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(lat, lng),
+                map: map,
+                title: title,
+                icon: icon
+            });
+            Marker_Bus_Status.push(marker);
+        }
+
+        function clearBusMarkers() {
+            while (Marker_Bus_Status[0]) {
+                Marker_Bus_Status.pop().setMap(null);
+            }
+        }
+
+        function drawRouteTrack() {
+            routePath = new google.maps.Polyline({
+                geodesic: true,
+                strokeColor: '#9863b6',
+                strokeOpacity: 1.0,
+                strokeWeight: 4
+            });
+            routePath.setMap(map);
+        }
+
+
+        function pointRouteStopsLMap(isGoDirection) {
+            clearMarkers();
+            var stops;
+            var iconUrl;
+            if (isGoDirection) {
+                if (objArr.GoDirStops ==null)
+                {stops = objArr.BackDirStops;
+                    iconUrl = 'marker-g';
+                }
+                else
+                {
+                    stops = objArr.GoDirStops;
+                    iconUrl = 'marker-g';
+                }
+                //stops = objArr.GoDirStops;
+                //iconUrl = 'marker-g';
+            } else {
+                stops = objArr.BackDirStops;
+                //iconUrl = "images/mapIcon/station_02.png";
+                iconUrl = 'marker-b';
+            }
+            var arMarker = [];
+            for (var i in stops) {
+                infoLink =
+                    "<div class='inforwindow-bike-c'><div class='inforwindow-1ocation-c'><p class='inforwindow-1ocation'>" + stops[i].Name + "</p><p class='inforwindow-1ocation-number'>"+ "</p></div><a class='inforwindow-transplan-start-end-icon02' href='" + SitePath + "Stop/RoutesOfStop?Stopid=" + stops[i].UniStopId + "'>" + i18n._('List of Routes') + "</a></div>";
+                // "<div class='inforwindow-bike-c'><div class='inforwindow-1ocation-c'>" + "<p class='inforwindow-1ocation-number'>" + stops[i].PublicId + "</p></div><a class='inforwindow-transplan-start-end-icon02' href='" + SitePath + "Stop/RoutesOfStop?Stopid=" + stops[i].UniStopId + "'>" + i18n._('List of Routes') + "</a></div>";
+
+                var GoStopsicon = new L.DivIcon({ html: '<div align="center"  valign="center"><span>' + (parseInt(i)+1) + '</span></div>', className:  iconUrl, iconSize: new L.Point(24, 24),iconAnchor: [12, 24], });
+                //var GoStopsicon = L.icon({
+                //    iconUrl: '/images/mapIcon/station_01.png',
+                //    iconSize: [16, 16]
+                //});
+                m = L.marker([stops[i].Latitude, stops[i].Longitude], { icon: GoStopsicon });
+                m.bindPopup(infoLink, {
+                    maxWidth : 300,
+                    maxHeight:170,
+                    className:'custompopup'
+                });
+                setStationMarkers(m);
+                //m.bindTooltip(data[i].tooltip);
+
+                arMarker.push(m);
+            }
+            StoplayerGroup = L.layerGroup(arMarker).addTo(map)
+            //layerMap.set('layername', L.layerGroup(arMarker).addTo(map));
+        }
+
+        function stopStatusRecent3Report(stopId) {
+            (
+                function startFatch() {
+                    $.ajax({
+                        // url: '/Route/StopStatusRecent3OfRoute?routeid=0454072100',
+                        url: './StopStatusRecent3OfRoute?routeid=0454072100&stopid='+stopId,
+                        type: 'post',
+                        dataType: 'html',
+                        data: {
+                            '__RequestVerificationToken': $('input[name=__RequestVerificationToken]').val(),
+                            'X-Requested-With': 'XMLHttpRequest'
+                        },
+                        error: function(xhr) {
+
+                        },
+                        success: function(response) {
+                            // clearBusMarkers();
+                            //var jsonObjArr = JSON.parse(response);// vic
+                            // var jsonObjArr = response;
+                            //  alert(response);
+                            $('#recent3').empty();
+                            $('#recent3').append(response);
+
+
+                        }
+                    });
+                    //if (busFetchInterval == null) {
+                    //    busFetchInterval = window.setInterval(startFatch, 1000 * 13);
+                    //}
+                })();
+        }
+
+        function busStatusReport() {
+            (function startFatch() {
+                $.ajax({
+                    url: '/Route/BusStatusOfRoute?routeid=0454072100',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        '__RequestVerificationToken': $('input[name=__RequestVerificationToken]').val(),
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    error: function(xhr) {
+
+                    },
+                    success: function(response) {
+                        clearBusMarkers();
+                        var jsonObjArr = JSON.parse(response);// vic
+                        // var jsonObjArr = response;
+                        if (BuslayerGroup != null) {
+                            BuslayerGroup.clearLayers();
+                        }
+                        var arMarker = [];
+                        for (var i in jsonObjArr) {
+                            if (($('.stationlist-go').hasClass('stationlist-come-go') ||
+                                    $('.stationlist-come-go-c').length === 0) &&
+                                jsonObjArr[i].RouteDirect === 1) {
+
+                                m = L.marker([jsonObjArr[i].position.Latitude, jsonObjArr[i].position.Longitude], { icon:  L.icon({iconUrl: busIcon(jsonObjArr[i].BusType),iconAnchor: [16, 32]}) });
+                                m.bindPopup(jsonObjArr[i].BusLicence);
+                                arMarker.push(m);
+                                //createBusMarker(value.position.Latitude,
+                                //    value.position.Longitude,
+                                //    value.BusLicence,
+                                //    busIcon(value.BusType));
+                            }
+                            if ($('.stationlist-come').hasClass('stationlist-come-go') && jsonObjArr[i].RouteDirect === 2) {
+                                m = L.marker([jsonObjArr[i].position.Latitude, jsonObjArr[i].position.Longitude], { icon:  L.icon({iconUrl: busIcon(jsonObjArr[i].BusType),iconAnchor: [16, 32]}) });
+                                m.bindPopup(jsonObjArr[i].BusLicence);
+                                arMarker.push(m);
+                            }
+
+
+                        }
+                        BuslayerGroup = L.layerGroup(arMarker).addTo(map)
+                        //$.each(jsonObjArr,
+                        //    function(idx, value) {
+                        //        if (($('.stationlist-go').hasClass('stationlist-come-go') ||
+                        //                $('.stationlist-come-go-c').length === 0) &&
+                        //            value.RouteDirect === 1) {
+                        //            //createBusMarker(value.position.Latitude,
+                        //            //    value.position.Longitude,
+                        //            //    value.BusLicence,
+                        //            //    busIcon(value.BusType));
+                        //        }
+                        //        if ($('.stationlist-come').hasClass('stationlist-come-go') && value.RouteDirect === 2) {
+                        //            //createBusMarker(value.position.Latitude,
+                        //            //    value.position.Longitude,
+                        //            //    value.BusLicence,
+                        //            //    busIcon(value.BusType));
+                        //        }
+                        //    });
+                    }
+                });
+                if (busFetchInterval == null) {
+                    busFetchInterval = window.setInterval(startFatch, 1000 * 13);
+                }
+            })();
+        }
+
+        function stopBusStatusReport() {
+            clearBusMarkers();
+            clearInterval(busFetchInterval);
+            busFetchInterval = null;
+        }
+
+        function busIcon(btype) {
+            var url;
+            if (btype === 2) {
+                url = SitePath + "images/mapIcon/LowFloorBus06.png";
+                return url;
+            }
+            if (btype === 51) {
+                url = SitePath + "images/mapIcon/FukangBus06.png";
+                return url;
+            }
+            if (btype === 52) {
+                url = SitePath + "images/mapIcon/YuanZaiBus06.png";
+                return url;
+            }
+            if (btype === 6) {
+                url = SitePath + "images/mapIcon/AccMiniBus06.png";
+                return url;
+            }
+            url = SitePath + "images/mapIcon/NormalBus06.png";
+            return url;
+        }
+
+        //依據清單，過濾重複項目
+        function unique(list) {
+            var result = [];
+            $.each(list,
+                function(i, e) {
+                    if ($.inArray(e, result) === -1) result.push(e);
+                });
+            return result;
+        }
+
+        function stationStatusReport() {
+            (function startFatch() {
+                $.ajax({
+                    url: '/Route/StopStatusOfRoute?routeid=0454072100',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        '__RequestVerificationToken': $('input[name=__RequestVerificationToken]').val(),
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    error: function(xhr) {
+
+                    },
+                    success: function(response) {
+                        // Clearing
+                        $('.auto-list-stationlist-bus').remove();
+                        $('.auto-list-stationlist-position')
+                            .removeClass('auto-list-stationlist-position-none auto-list-stationlist-position-now auto-list-stationlist-position-time')
+                            .html('');
+                        
+                        var jsonObjArr = JSON.parse(response);
+                        var goStationList = []; //去程站位及站序
+                        var backStationList = []; //返程站位及站序
+                        var uniStation = []; //取得車號
+                        var tempduplicate = [];//重複站牌編號項目(暫存)
+                        var duplicateStation; //重複站排項目
+                        var filterDuplicate;//取得有重複的站位及公車編號
+
+                        if (jsonObjArr.length !== 0) {
+
+                            var hasSeq = jsonObjArr[0].StopSequence !== 65535;
+                            //hasSeq = jsonObjArr[0].UniRouteId[9] =='0' ?hasSeq:false;
+                            // if ($('.stationlist-go').hasClass('stationlist-come-go') ||$('.stationlist-go').hasClass('stationlist-go')) {
+                            if ($('.stationlist-go').hasClass('stationlist-come-go') ||objArr.BackDirStops === null) {
+                                //if ($('.stationlist-go').hasClass('stationlist-come-go') ||!($('.stationlist-come-go-c').length == 0)) {
+
+                                //取得去程站位及站序
+                                $.each( $('#GoDirectionRoute li  '), function( index, item ){
+                                    var uniStopId = $(item).find('input#item_UniStopId').val();
+                                    var stopSeq =parseInt($(item).find('.auto-list-stationlist-number').text().trim());
+                                    goStationList.push({ stopSeq: stopSeq, uniStopId: uniStopId });
+                                });
+
+                                //取得相同站牌編號
+                                $.grep(jsonObjArr,function(item) {
+
+                                    if (($.inArray(item.UniStationId, uniStation) === -1)) {
+                                        //未重複
+                                        uniStation.push(item.UniStationId);
+                                        
+                                    } else {
+                                        //有重複
+                                        tempduplicate.push(item.UniStationId);
+                                    }
+                                });
+
+                                if (tempduplicate.length==0)
+                                {hasSeq=false;
+                                }
+
+                                //重複站排項目
+                                duplicateStation = unique(tempduplicate);
+
+                                //取得有重複的站位及公車編號
+                                filterDuplicate = $.grep(jsonObjArr,function(item) {
+
+                                    //取得有重複站位
+                                    if (($.inArray(item.UniStationId, duplicateStation) !== -1)) {
+
+                                        //確定該站位，有在站位列表中
+                                        var result = $.grep(goStationList,function(e) { return e.uniStopId === item.UniStationId; });
+
+                                        if (result && result.length > 0) {
+
+                                            //在資料內找出該站位的進站公車，是否有重複
+                                            if (item.Vehicles && item.Vehicles.length > 0) {
+
+                                                //依據該公車編號，取得是否有重複的
+                                                var busIdDuplicate = $.grep(item.Vehicles,function(value) {
+
+                                                    var getVehicles = $.grep(jsonObjArr,function(data) {
+
+                                                        //找出有重複的公車編號
+                                                        var filterVehicles = $.grep(data.Vehicles,function(vehicles) {
+                                                            return value.UniBusId === vehicles.UniBusId;
+                                                        });
+
+                                                        //若相同公車編號找尋結果，有2筆以上，則回傳該項目
+                                                        if (filterVehicles && filterVehicles.length > 0) {
+                                                            return data;
+                                                        }
+                                                    });
+
+                                                    if (getVehicles && getVehicles.length > 0) {
+                                                        return value;
+                                                    }
+                                                });
+
+                                                if (busIdDuplicate && busIdDuplicate.length > 0) {
+                                                    return item;
+                                                }
+
+
+                                            }
+
+
+                                        }
+
+                                    }
+                                });
+
+                                //去程
+                                $('#GoDirectionRoute li').map(function(index, item) {
+
+                                    //站排編號
+                                    var _UniStopId = $(item).find('input#item_UniStopId').val();
+                                    //站牌站序
+                                    var _StopSeq =parseInt($(item).find('.auto-list-stationlist-number').text().trim());
+
+                                    var tmp = jsonObjArr.filter(function(item) {
+
+                                        if (hasSeq) {
+                                            if (item.UniStationId == _UniStopId &&
+                                                item.StopSequence == (_StopSeq - 1))
+                                                return true;
+                                        } else {
+                                            if (item.UniStationId == _UniStopId)
+                                                return true;
+                                        }
+                                        return false;
+                                    });
+
+                                    if (tmp && tmp.length > 0) {
+
+                                        var value = tmp[0];
+
+                                        //依據有重複的站位及公車編號，取得下一站位的等待時間
+                                        var  filterBusId = filterDuplicate.filter(function(item) {
+                                            if (item.UniStationId === value.UniStationId) {
+                                                return true;
+                                            }
+                                            return false;
+                                        }).map(function(dirItem) {
+
+                                            var nextStation = jsonObjArr.filter(function (station) {
+                                                if ( station.StopSequence ===( parseInt(dirItem.StopSequence) +1)) {
+
+                                                    return true;
+                                                }
+                                                return false;
+                                            });
+
+                                            if (nextStation && nextStation.length > 0 ) {
+                                                dirItem.NextETA = nextStation[0].ETA;
+                                            }
+
+                                            return dirItem;
+
+                                        });
+
+                                        //若公車站編號相同超過1個以上，表示有重複
+                                        if (filterBusId && filterBusId.length > 1) {
+
+                                            //車號編號
+                                            var busArray= [];
+                                            //重複車號編號
+                                            var tempbusArray= [];
+
+                                            //取得重複車號
+                                            $.each(filterBusId , function(index, item) {
+                                                $.each(item.Vehicles , function(iVehicles, vehicles) {
+
+                                                    if (($.inArray(vehicles.UniBusId, busArray) !== -1)) {
+                                                        //未重複
+                                                        busArray.push(vehicles.UniBusId);
+                                                    } else {
+                                                        //有重複
+                                                        tempbusArray.push(vehicles.UniBusId);
+                                                    }
+                                                });
+                                            });
+
+                                            //過濾收集重複車號項目
+                                            var duplicateBus = unique(tempbusArray);
+
+                                            if (duplicateBus.length > 0 ) {
+
+                                                //依進站時間排序
+                                                filterBusId.sort(function (a, b) {
+                                                    if (a.NextETA> b.NextETA) {
+                                                        return 1;
+                                                    }
+                                                    if (a.ETA< b.ETA) {
+                                                        return -1;
+                                                    }
+                                                    // a must be equal to b
+                                                    return 0;
+                                                });
+
+                                                for (var i = 0; i < filterBusId.length; i++) {
+
+                                                    if (i !==0) {
+                                                        filterBusId[i].Vehicles =  $.grep(filterBusId[i].Vehicles, function(iVehicles, vehicles) {
+
+                                                            if (($.inArray(vehicles.UniBusId, duplicateBus) === -1)) {
+                                                                //未重複
+                                                                return vehicles;
+                                                            }
+
+                                                        });
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        if (value.Vehicles.length > 0) {
+
+                                            var _html = "<span class='auto-list-stationlist-bus'>";
+
+                                            for (var i = 0; i < value.Vehicles.length; i++) {
+                                                //'<img src=\"../images/seats/seat00.png\">'
+                                                var dogimg=""
+                                                if($('#doglink').attr('dognum')!=null)
+                                                {
+                                                    if (value.Vehicles[i].BusLicence.indexOf($('#doglink').attr('dognum')) > -1) {
+                                                        value.Vehicles[i].BusLicence=value.Vehicles[i].BusLicence.replace($('#doglink').attr('dognum'), '');
+                                                        dogimg="<img src='" +
+                                                            SitePath +
+                                                            "images/stationlist_dogwhite_bus.png' class='bus-number-img' alt=''>";
+                                                    }
+                                                }
+                                                if (value.Vehicles[i].BusType == 2) {
+                                                    _html = _html +
+                                                        "<p class='bus-number'><img src='" +
+                                                        SitePath +
+                                                        "images/stationlist_accessibility_bus.svg' class='bus-number-img' alt='" +
+                                                        i18n._('Accessibility Bus') +
+                                                        "'>" +
+                                                                                                                value.Vehicles[i].BusLicence +setSeatImg(value.Vehicles[i].bSetL)+
+                                                        "</p>";
+                                                } else {
+                                                    _html =
+                                                        _html +
+                                                        "<p class='bus-number'>" +
+                                                                                                                value.Vehicles[i].BusLicence +setSeatImg(value.Vehicles[i].bSetL)+
+                                                        "</p>";
+                                                }
+                                            }
+                                            $(item)
+                                                .find('span.auto-list-stationlist')
+                                                .append(_html.concat("</span>"));
+                                        }
+                                        if(value.NextDepTime!='FF')
+                                        {
+                                           
+                                            $(item).find('span.auto-list-stationlist-position').addClass('auto-list-stationlist-position-now').html('預計'+value.NextDepTime+'發車');
+                                        }
+                                        else{
+                                            FormatETA($(item).find('span.auto-list-stationlist-position'), value.ETA);
+                                        }
+                                    }else
+                                    {
+                                        if (jsonObjArr[0].UniRouteId[9] =='0')
+                                        {
+                                            FormatETA($(item).find('span.auto-list-stationlist-position'), 65535);
+                                        }else
+                                        {
+                                            FormatETA($(item).find('span.auto-list-stationlist-position'), 65529);
+                                        }
+                                    }
+
+                                    return item;
+                                });
+
+                            } else {
+
+                                //取得返程站位及站序
+                                $.each( $('#BackDirectionRoute li  '), function( index, item ){
+                                    var uniStopId = $(item).find('input#item_UniStopId').val();
+                                    var stopSeq =parseInt($(item).find('.auto-list-stationlist-number').text().trim());
+                                    backStationList.push({ stopSeq: stopSeq, uniStopId: uniStopId });
+                                });
+
+                                //取得相同站牌編號
+                                $.grep(jsonObjArr,function(item) {
+
+                                    if (($.inArray(item.UniStationId, uniStation) === -1)) {
+                                        //未重複
+                                        uniStation.push(item.UniStationId);
+                                    } else {
+                                        //有重複
+                                        tempduplicate.push(item.UniStationId);
+                                    }
+                                });
+
+                                //重複站排項目
+                                duplicateStation = unique(tempduplicate);
+
+                                //取得有重複的站位及公車編號
+                                filterDuplicate = $.grep(jsonObjArr,function(item) {
+
+                                    //取得有重複站位
+                                    if (($.inArray(item.UniStationId, duplicateStation) !== -1)) {
+
+                                        //確定該站位，有在站位列表中
+                                        var result = $.grep(backStationList,function(e) { return e.uniStopId === item.UniStationId; });
+
+                                        if (result && result.length > 0) {
+
+                                            //在資料內找出該站位的進站公車，是否有重複
+                                            if (item.Vehicles && item.Vehicles.length > 0) {
+
+                                                //依據該公車編號，取得是否有重複的
+                                                var busIdDuplicate = $.grep(item.Vehicles,function(value) {
+
+                                                    var getVehicles = $.grep(jsonObjArr,function(data) {
+
+                                                        //找出有重複的公車編號
+                                                        var filterVehicles = $.grep(data.Vehicles,function(vehicles) {
+                                                            return value.UniBusId === vehicles.UniBusId;
+                                                        });
+
+                                                        //若相同公車編號找尋結果，有2筆以上，則回傳該項目
+                                                        if (filterVehicles && filterVehicles.length > 0) {
+                                                            return data;
+                                                        }
+                                                    });
+
+                                                    if (getVehicles && getVehicles.length > 0) {
+                                                        return value;
+                                                    }
+                                                });
+
+                                                if (busIdDuplicate && busIdDuplicate.length > 0) {
+                                                    return item;
+                                                }
+
+
+                                            }
+
+
+                                        }
+
+                                    }
+                                });
+
+                                hasSeq = jsonObjArr[0].UniRouteId[9] =='0' ?hasSeq:false;
+                                //返程
+                                $('#BackDirectionRoute li').map(function(index, item) {
+
+                                    var _UniStopId = $(item).find('input#item_UniStopId').val();
+
+                                  if ($('.stationlist-come-go-c').length === 0)
+                                    { var _StopSeq =parseInt($(item).find('.auto-list-stationlist-number').text().trim()) +objArr.BackDirStops.length;
+                                    }
+                                    else
+                                    {
+                                        var _StopSeq =parseInt($(item).find('.auto-list-stationlist-number').text().trim()) +objArr.GoDirStops.length;
+                                    }
+
+                                    var tmp = jsonObjArr.filter(function(item) {
+                                        if (hasSeq) {
+                                            if (item.UniStationId == _UniStopId &&
+                                                item.StopSequence == (_StopSeq - 1))
+                                                return true;
+                                        } else {
+                                            if (item.UniStationId == _UniStopId)
+                                                return true;
+                                        }
+                                    });
+
+                                    if (tmp && tmp.length > 0) {
+
+                                        var value = tmp[0];
+
+                                        //依據有重複的站位及公車編號，取得下一站位的等待時間
+                                        var  filterBusId = filterDuplicate.filter(function(item) {
+                                            if (item.UniStationId === value.UniStationId) {
+                                                return true;
+                                            }
+                                            return false;
+                                        }).map(function(dirItem) {
+
+                                            var nextStation = jsonObjArr.filter(function (station) {
+                                                if ( station.StopSequence ===( parseInt(dirItem.StopSequence) +1)) {
+
+                                                    return true;
+                                                }
+                                                return false;
+                                            });
+
+                                            if (nextStation && nextStation.length > 0 ) {
+                                                dirItem.NextETA = nextStation[0].ETA;
+                                            }
+
+                                            return dirItem;
+
+                                        });
+
+                                        //若公車站編號相同超過1個以上，表示有重複
+                                        if (filterBusId && filterBusId.length > 1) {
+
+                                            //車號編號
+                                            var busArray= [];
+                                            //重複車號編號
+                                            var tempbusArray= [];
+
+                                            //取得重複車號
+                                            $.each(filterBusId , function(index, item) {
+                                                $.each(item.Vehicles , function(iVehicles, vehicles) {
+
+                                                    if (($.inArray(vehicles.UniBusId, busArray) !== -1)) {
+                                                        //未重複
+                                                        busArray.push(vehicles.UniBusId);
+                                                    } else {
+                                                        //有重複
+                                                        tempbusArray.push(vehicles.UniBusId);
+                                                    }
+                                                });
+                                            });
+
+                                            //過濾收集重複車號項目
+                                            var duplicateBus = unique(tempbusArray);
+
+                                            if (duplicateBus.length > 0 ) {
+
+                                                //依進站時間排序
+                                                filterBusId.sort(function (a, b) {
+                                                    if (a.NextETA> b.NextETA) {
+                                                        return 1;
+                                                    }
+                                                    if (a.ETA< b.ETA) {
+                                                        return -1;
+                                                    }
+                                                    // a must be equal to b
+                                                    return 0;
+                                                });
+
+                                                for (var i = 0; i < filterBusId.length; i++) {
+
+                                                    if (i !==0) {
+                                                        filterBusId[i].Vehicles =  $.grep(filterBusId[i].Vehicles, function(iVehicles, vehicles) {
+
+                                                            if (($.inArray(vehicles.UniBusId, duplicateBus) === -1)) {
+                                                                //未重複
+                                                                return vehicles;
+                                                            }
+
+                                                        });
+                                                    }
+                                                }
+
+                                            }
+                                        }
+
+
+                                        if (value.Vehicles.length > 0) {
+                                            var _html = "<span class='auto-list-stationlist-bus'>";
+                                            for (var i = 0; i < value.Vehicles.length; i++) {
+                                                var dogimg=""
+                                                if($('#doglink').attr('dognum')!=null)
+                                                { if (value.Vehicles[i].BusLicence.indexOf($('#doglink').attr('dognum')) > -1) {
+                                                    value.Vehicles[i].BusLicence=value.Vehicles[i].BusLicence.replace($('#doglink').attr('dognum'), '');
+                                                    dogimg="<img src='" +
+                                                        SitePath +
+                                                        "images/stationlist_dogwhite_bus.png' class='bus-number-img' alt=''>";
+                                                }
+                                                }
+                                                if (value.Vehicles[i].BusType == 2) {
+                                                    _html =
+                                                        _html +
+                                                        "<p class='bus-number'><img src='" +
+                                                        SitePath +
+                                                        "images/stationlist_accessibility_bus.svg' class='bus-number-img' alt='" +
+                                                        i18n._('Accessibility Bus') +
+                                                       "'>" +
+                                                                                                               value.Vehicles[i].BusLicence +setSeatImg(value.Vehicles[i].bSetL)+
+                                                        "</p>";
+                                                } else {
+                                                    _html =
+                                                        _html +
+                                                        "<p class='bus-number'>" +
+                                                                                                                value.Vehicles[i].BusLicence +setSeatImg(value.Vehicles[i].bSetL)+
+                                                        "</p>";
+                                                }
+                                            }
+                                            $(item)
+                                                .find('span.auto-list-stationlist')
+                                                .append(_html.concat("</span>"));
+                                        }
+
+                                        //轉為時間
+                                        if(value.NextDepTime!='FF')
+                                        {
+                                            $(item).find('span.auto-list-stationlist-position').addClass('auto-list-stationlist-position-now').html('預計'+value.NextDepTime+'發車');
+                                        }
+                                        else{
+                                            FormatETA($(item).find('span.auto-list-stationlist-position'), value.ETA);
+                                        }
+                                    }else{
+                                        //if( jsonObjArr[0].UniRouteId[9] !='0')
+                                        //    FormatETA($(item).find('span.auto-list-stationlist-position'), 65529);
+                                        if (jsonObjArr[0].UniRouteId[9] =='0')
+                                        {
+                                            FormatETA($(item).find('span.auto-list-stationlist-position'), 65535);
+                                        }else
+                                        {
+                                            FormatETA($(item).find('span.auto-list-stationlist-position'), 65529);
+                                        }
+                                    }
+
+                                    return item;
+                                });
+                            }
+
+                        }
+                        else{
+                            //去程
+                            $('#GoDirectionRoute li').map(function(index, item) {
+                                FormatETA($(item).find('span.auto-list-stationlist-position'), 65529);
+                                return item;
+                            });
+
+                            //返程
+                            $('#BackDirectionRoute li').map(function(index, item) {
+                                FormatETA($(item).find('span.auto-list-stationlist-position'), 65529);
+                                return item;
+                            });
+                        }
+
+                    }
+
+                });
+                if (stopFetchInterval === null) {
+                    stopFetchInterval = window.setInterval(startFatch, 1000 * 15);
+                }
+            })();
+
+        }
+
+        function setSeatImg(lv)
+        {
+            var s = '';
+            if (lv>-1)
+            {
+                //s = '<img src=\"../images/seats/seat'+lv+'.png\" class="bus-number-img" >';
+                s = '&ensp;<img width="20px" src=\"../images/seats/people'+lv+'_B.svg\" class="bus-number-img" >';
+            }
+            return s;
+        }
+
+        function stopStationStatusReport() {
+            clearInterval(stopFetchInterval);
+            stopFetchInterval = null;
+        }
+
+        function shownewchart(_id) {
+
+            AptsBusMap.init({
+                AptsSpringWebHome: SitePath,
+                uniRouteId: _id,
+                goBack: 0
+            });
+            AptsBusMap.load('myMap');
+
+            $('.route-list').hide();
+            $('.route-chart').show();
+
+        }
+
+        function hidenewchart() {
+            $('.route-list').show();
+            $('.route-chart').hide();
+            //clearInterval(AptsBusMap.......interval);//沒有停止方法
+        }
+
+        function toggleRouteListAndChart() {
+            if ($('.route-chart').is(":visible")) {
+                $('.route-list').toggle();
+                $('.route-chart').toggle();
+                google.maps.event.trigger(map, "resize");
+                $('.route-chart').html('');
+                busStatusReport();
+                stationStatusReport();
+            } else {
+                stopBusStatusReport();
+                stopStationStatusReport();
+                $('.route-chart')
+                    .html('<button onclick="toggleRouteListAndChart()">back</button><div id="myMap" class="left" style="width:900px;margin-top:30px;"></div>');
+                shownewchart('0454072100');
+
+            }
+        }
+
+        function FormatETA(elem, eta) {
+            if (eta < 0) {
+                elem.addClass('auto-list-stationlist-position-none').html(ConvertETA(eta));
+                return;
+            }
+            if (eta >= 0 && eta <= 180) {
+                elem.addClass('auto-list-stationlist-position-now').html(ConvertETA(eta));
+                return;
+            }
+            if ( eta === 65535 ||
+                 eta === 65529 ||
+                 eta === 65534 ||
+                eta === 65532 ||
+                eta === 65533 ||
+                eta === 65531 ||
+                eta === 65530
+               ) {
+                elem.addClass('auto-list-stationlist-position-none').html(ConvertETA(eta));
+                return;
+            }
+            elem.addClass('auto-list-stationlist-position-time').html(ConvertETA(eta) + i18n._('Mins'));
+        }
+
+
+        function addToMyBus(routeid, stopid, groupid) {
+            $.ajax({
+                url: '/MyBus/NewContentOfGroup',
+                type: 'post',
+                dataType: 'html',
+                data: {
+                    '__RequestVerificationToken': $('input[name=__RequestVerificationToken]').val(),
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'unirouteid': routeid,
+                    'unistationid': stopid,
+                    'groupid': groupid
+                },
+                beforeSend: function() {
+                    $('#ProcessIconSpan').show();
+                },
+                error: function(response) {
+                    toastr["warning"](i18n._('Added Failure'), "");
+                },
+                success: function(response) {
+                    toastr["info"](i18n._('Added Success'), "");
+                },
+                complete: function() {
+                    $('#ProcessIconSpan').hide();
+                }
+            });
+        }
+
+        var routeJsonString = JSON.stringify({"UniRouteId":"0454072100","Name":"F721","BeginStop":"坪林國中","GoDirStops":[{"UniStopId":"2324100600","Name":"坪林國中","Name_TW":null,"Name_EN":null,"StopOrder":0,"RoutesNumber":null,"BusETA":0,"BType":0,"BLicense":null,"Longitude":121.712961,"Latitude":24.93705,"PublicId":"2324100600"},{"UniStopId":"2324200420","Name":"漁光國小","Name_TW":null,"Name_EN":null,"StopOrder":0,"RoutesNumber":null,"BusETA":0,"BType":0,"BLicense":null,"Longitude":121.73678,"Latitude":24.959964,"PublicId":"2324200420"},{"UniStopId":"2324100900","Name":"南山寺","Name_TW":null,"Name_EN":null,"StopOrder":0,"RoutesNumber":null,"BusETA":0,"BType":0,"BLicense":null,"Longitude":121.727459,"Latitude":24.967183,"PublicId":"2324100900"},{"UniStopId":"2324200420","Name":"漁光國小","Name_TW":null,"Name_EN":null,"StopOrder":0,"RoutesNumber":null,"BusETA":0,"BType":0,"BLicense":null,"Longitude":121.73678,"Latitude":24.959964,"PublicId":"2324200420"},{"UniStopId":"2324200540","Name":"英速魔法學院","Name_TW":null,"Name_EN":null,"StopOrder":0,"RoutesNumber":null,"BusETA":0,"BType":0,"BLicense":null,"Longitude":121.769517,"Latitude":24.964998,"PublicId":"2324200540"},{"UniStopId":"2324200630","Name":"闊瀨","Name_TW":null,"Name_EN":null,"StopOrder":0,"RoutesNumber":null,"BusETA":0,"BType":0,"BLicense":null,"Longitude":121.7783,"Latitude":24.968742,"PublicId":"2324200630"}],"LastStop":"南山寺","BackDirStops":[{"UniStopId":"2324200630","Name":"闊瀨","Name_TW":null,"Name_EN":null,"StopOrder":0,"RoutesNumber":null,"BusETA":0,"BType":0,"BLicense":null,"Longitude":121.7783,"Latitude":24.968742,"PublicId":"2324200630"},{"UniStopId":"2324200540","Name":"英速魔法學院","Name_TW":null,"Name_EN":null,"StopOrder":0,"RoutesNumber":null,"BusETA":0,"BType":0,"BLicense":null,"Longitude":121.769517,"Latitude":24.964998,"PublicId":"2324200540"},{"UniStopId":"2324200420","Name":"漁光國小","Name_TW":null,"Name_EN":null,"StopOrder":0,"RoutesNumber":null,"BusETA":0,"BType":0,"BLicense":null,"Longitude":121.73678,"Latitude":24.959964,"PublicId":"2324200420"},{"UniStopId":"2324100920","Name":"南山寺","Name_TW":null,"Name_EN":null,"StopOrder":0,"RoutesNumber":null,"BusETA":0,"BType":0,"BLicense":null,"Longitude":121.727296,"Latitude":24.967221,"PublicId":"2324100920"},{"UniStopId":"2324200440","Name":"漁光國小","Name_TW":null,"Name_EN":null,"StopOrder":0,"RoutesNumber":null,"BusETA":0,"BType":0,"BLicense":null,"Longitude":121.73664,"Latitude":24.959872,"PublicId":"2324200440"},{"UniStopId":"2324100660","Name":"坪林國中","Name_TW":null,"Name_EN":null,"StopOrder":0,"RoutesNumber":null,"BusETA":0,"BType":0,"BLicense":null,"Longitude":121.712939,"Latitude":24.937332,"PublicId":"2324100660"}],"RouteMapUrl":"../MapOverview?nid=0454072100","RouteTracks":null,"StopDirection":null,"TicketPrice":"","BusTimeDesc":"停駛","HeadwayDesc":"","HolidayBusTimeDesc":"0800 - 1600","HolidayHeadwayDesc":"F721南山寺至坪林國中班表:1000 1100 1200 1400 1500 1700;F721坪林國中至南山寺班表:0900 1000 1100 1300 1400 1600;F721坪林國中至闊瀨班表:0800 1200 1500;F721闊瀨至坪林國中班表:0900 1300 1600","RouteNote":"平常日停駛","SegmentBuffer":"","StopLng":0,"StopLat":0,"IsNtpcMainLine":false,"orgphone":"坪林區公所坪林區公所站:(02)2665-7251","aliasName":null,"aliasEname":null,"memo":null,"memoEn":null,"showBusTimeDesc":true,"RouteStatus":1,"wkt":"LINESTRING (121.747927826554 24.9653746622346, 121.747332886861 24.9652173516225, 121.746985838706 24.9652510610563, 121.746143007474 24.9658803021259, 121.745672013551 24.9661387394903, 121.744754814857 24.9668129213644, 121.744494528741 24.9672623738951, 121.743193098162 24.9680826205321, 121.742821260854 24.9680601480943, 121.741755327237 24.9673410279193, 121.740999258044 24.966532012699, 121.74020600512 24.9668016850301, 121.739189649811 24.9657791743138, 121.73963585458 24.9652285881014, 121.739462330503 24.9647903646616, 121.738222872809 24.9647117090073, 121.736512421191 24.9667005579752, 121.73599184896 24.9666331398924, 121.735768746575 24.9662848125431, 121.735570433344 24.9661949214542, 121.735681984536 24.9667005579752, 121.735533249613 24.9672623738951, 121.735359725536 24.9672399013076, 121.735272963497 24.965992666264, 121.735471276728 24.9655094997421, 121.73449210515 24.9654533174652, 121.73372364138 24.9651499327271, 121.732851579409 24.9651063218252, 121.732729767096 24.9649285327239, 121.732685287911 24.9645995305653, 121.732697418598 24.9644455682502, 121.732764137375 24.9643905816625, 121.733273626221 24.9642531150856, 121.733356519247 24.9641312279256, 121.733358541028 24.963774730201, 121.733403020213 24.9636610906065, 121.734194547527 24.9636620070553, 121.734388638516 24.9636198504051, 121.734499836478 24.9635190409658, 121.734552908233 24.9634072340365, 121.734558973577 24.9631570427529, 121.734619627011 24.9630507342148, 121.734738406652 24.9630104102625, 121.734892062018 24.9630104102625, 121.735030048581 24.9630598987475, 121.735244357381 24.9632143210221, 121.735602465364 24.9633980695296, 121.735747022716 24.9633980695296, 121.735832948414 24.9633614114951, 121.735926203069 24.9632770979744, 121.736037653754 24.9630562329345, 121.736119535889 24.9629810837434, 121.736260302401 24.9629155572772, 121.736444284484 24.9627890865163, 121.736599961631 24.9626172510353, 121.736713434098 24.9625425598047, 121.7368953944 24.9624710761305, 121.736962113177 24.9623812632503, 121.736971211192 24.96222775639, 121.73684282809 24.961917534479, 121.736476632982 24.96127417665, 121.736448328046 24.9611078378607, 121.736456415171 24.9609291265144, 121.736503927028 24.9607994460673, 121.73668689822 24.9605281706266, 121.736734915522 24.9603228807065, 121.736753111552 24.9599617894935, 121.736356084282 24.9601812854504, 121.736104877976 24.9603966568109, 121.735854177116 24.9605157982527, 121.735778865768 24.9605927818922, 121.73572832124 24.9608686395384, 121.735477620379 24.961682461816, 121.735402814477 24.9617392825398, 121.735303747202 24.9617411154659, 121.735212767051 24.9616549679079, 121.735016148835 24.9611637423825, 121.734906972654 24.9610647638677, 121.734556699073 24.9608961336221, 121.734407087269 24.9608924677446, 121.734077031499 24.9609437900192, 121.733732823261 24.960839312509, 121.733209181947 24.9607531643199, 121.733087875079 24.9607623290237, 121.733051483019 24.9608264819315, 121.733014585513 24.9611921528674, 121.732794211369 24.9613974413377, 121.732646621346 24.9614322670264, 121.732460617482 24.9614469304713, 121.732274108173 24.9613937754752, 121.732104278557 24.9614066059936, 121.731873795508 24.9615220805991, 121.731579626353 24.9618914153164, 121.730991288043 24.962292824993, 121.73081690942 24.9624312102173, 121.730614731307 24.9624495393744, 121.730240196352 24.9622955743698, 121.730139107295 24.9622937414519, 121.730021843989 24.9623542277276, 121.729659439721 24.9627253928593, 121.729538132853 24.9627712156375, 121.729406717079 24.9627712156375, 121.728710718924 24.9625714281998, 121.728554536331 24.9625805927683, 121.728313944376 24.9626337472519, 121.728000568301 24.9628637775973, 121.727761492681 24.9629829166511, 121.727585597723 24.9629664204813, 121.727395550296 24.9628454485019, 121.727328831519 24.96288210669, 121.727349554775 24.9630168254376, 121.727452665613 24.9630681468264, 121.727772107032 24.963491547468, 121.727891392119 24.9635098764672, 121.728202746414 24.9632880953934, 121.72847214875 24.9633018421658, 121.729038752913 24.9635786101899, 121.729135798407 24.9637032472425, 121.729180277592 24.9638911190319, 121.729143885532 24.9640762411974, 121.72872082783 24.9643960803223, 121.728322536946 24.9648753792314, 121.728217404327 24.965364757071, 121.728046563821 24.9655718714508, 121.727650294719 24.9657844840798, 121.727359158236 24.9659751019867, 121.727237851368 24.966152889576, 121.727229764243 24.9665157954044, 121.727399593859 24.9670656506808, 121.727452160168 24.9674102254018, 121.727375332485 24.9674138910851, 121.727157991013 24.9665341239532, 121.727190339511 24.9661107337791, 121.72729547213 24.9659641048078, 121.727574477927 24.9657716540178, 121.728092053897 24.9654270747087, 121.728245709263 24.9648258914763, 121.728676348645 24.9643548403672, 121.729086770215 24.9640404998109, 121.729111031588 24.9639140302061, 121.729054421717 24.9637179104169, 121.728941201973 24.9635932733791, 121.728457490837 24.9633815734154, 121.72822245878 24.9633595785931, 121.727917169829 24.9635758608417, 121.727755427338 24.9635556989533, 121.72741981167 24.9631414630591, 121.727278286991 24.9630571493878, 121.727243916711 24.9629160155043, 121.727288395896 24.9628170383986, 121.727389484953 24.9627987092962, 121.727575994262 24.9628967699622, 121.727751889221 24.96291509905, 121.728267948856 24.9625723446567, 121.728510562592 24.9625136914028, 121.728723355056 24.9625283547189, 121.729392564611 24.9627061472874, 121.72963164023 24.9626768206959, 121.729973321242 24.9623157364647, 121.730110802359 24.9622369209841, 121.730228065665 24.96222775639, 121.730586426371 24.9623597264785, 121.730768386673 24.9623872202291, 121.731527565489 24.961846508673, 121.731828810878 24.9614744244259, 121.732085577082 24.9613268734647, 121.732259955705 24.9613250405324, 121.732498525879 24.9614020236658, 121.732753775747 24.9613342051936, 121.732945844954 24.9611646588498, 121.732970106328 24.9608567254372, 121.733051483019 24.9607064243197, 121.733174811668 24.9606844290193, 121.733480100619 24.9607412502038, 121.733716649012 24.9607559137311, 121.733967349872 24.9608567254336, 121.734109379997 24.960871388947, 121.734403043707 24.9608273984014, 121.734558720854 24.9608200666422, 121.734944881051 24.9610033604898, 121.735064671583 24.9611032555218, 121.735283529391 24.9616311398493, 121.735362378855 24.9616751301077, 121.735431119413 24.9616348057048, 121.735623188621 24.9609502053021, 121.735697994523 24.9605872830624, 121.735776591264 24.9604971251305, 121.735936564697 24.9604269004186, 121.736060398791 24.9603609143559, 121.736290881841 24.960142793508, 121.73667350392 24.9599466677098, 121.736626746221 24.9592309989649, 121.736264757042 24.9590567805776, 121.736081850731 24.9587650615536, 121.735561182082 24.9585945074275, 121.735442211263 24.9586392300602, 121.735210662259 24.9588631880856, 121.735099807442 24.9588128589508, 121.735067888441 24.9587023678669, 121.735285517989 24.9584550779389, 121.735508950991 24.9584445549522, 121.735956548139 24.9585359866941, 121.736185053452 24.9585287388205, 121.736280810453 24.9583524787804, 121.736089514288 24.9582191996074, 121.735376774677 24.9581706853151, 121.734792434384 24.9578640821342, 121.734740421305 24.9576757363921, 121.734931391338 24.957644697519, 121.735298626313 24.9577771753798, 121.735638112987 24.9578804748727, 121.736038124934 24.9575497073418, 121.736512796026 24.9577506218541, 121.736755161916 24.9576611310911, 121.736835662427 24.9573303923253, 121.737434460257 24.9568034867456, 121.737184477044 24.95686039577, 121.736758049238 24.9570875400097, 121.736577410411 24.9573662142092, 121.736251069745 24.9572178985266, 121.736453400908 24.956594258837, 121.736789781841 24.9561042909864, 121.737066669275 24.9559113175996, 121.737171417266 24.9554996224722, 121.736943952777 24.954587986911, 121.737254558907 24.9538317915602, 121.737748722911 24.9527920153698, 121.737633276509 24.9526518827, 121.737242597382 24.9524769299423, 121.737238265624 24.9516527500925, 121.73650413251 24.9519777454947, 121.735782994671 24.9515316688224, 121.735157450651 24.9517837391639, 121.734983688424 24.9517837391639, 121.734531906632 24.9517453127524, 121.733593492223 24.9517492401853, 121.732814909398 24.9511131719404, 121.732501103639 24.9512283625796, 121.732303418361 24.9512176065907, 121.732384064363 24.9506274167542, 121.732097069567 24.9503303778395, 121.731473691427 24.9498538124645, 121.731508443873 24.9496017381726, 121.7316822061 24.949381172744, 121.731230424309 24.9488455122013, 121.73067438518 24.9489400407017, 121.730263853472 24.9485392982742, 121.729919487825 24.9483194759938, 121.729448936335 24.9483304408822, 121.729087191694 24.9480732634177, 121.728774863822 24.9480675909852, 121.728044028717 24.9482694580497, 121.727810557244 24.9479671702856, 121.727368591191 24.9478575161312, 121.726770149758 24.9479858708141, 121.72564838482 24.9475251170986, 121.724845769981 24.9470907858477, 121.724195323778 24.947192427453, 121.723858108761 24.9469188493049, 121.72293465026 24.9466258299303, 121.722431790721 24.9464413778619, 121.722002714656 24.9464163323602, 121.721282819189 24.9460113191377, 121.72130004027 24.9455101419284, 121.720844921118 24.9453113908251, 121.720726019324 24.9450490377824, 121.720362201586 24.9447609219839, 121.719104035894 24.9453085186693, 121.718602891636 24.9450612244814, 121.718250262351 24.9445769061684, 121.717614868072 24.9442095655347, 121.716925461223 24.943735977912, 121.716958047789 24.9434031056155, 121.717210625628 24.9434260496569, 121.717617212124 24.9438580937282, 121.717918520121 24.9437376302713, 121.717761380711 24.9433367044364, 121.716985170467 24.9428605009134, 121.716451922259 24.9430052463856, 121.715501943174 24.9433099380798, 121.714152820461 24.9435669843045, 121.713576620487 24.9435782355793, 121.713010356304 24.943423737033, 121.71323551647 24.943404290071, 121.713677137586 24.9434389798976, 121.714010424585 24.9433562595162, 121.714142967525 24.9431126818538, 121.714256348026 24.9428151755407, 121.714164781516 24.9425770312693, 121.713706396786 24.9422731067416, 121.712270456016 24.9416312070312, 121.712257301073 24.9413623952227, 121.712061297418 24.9411741114144, 121.711526925311 24.9411074218114, 121.711343056386 24.9408516914675, 121.711243242585 24.9404079363352, 121.711249855137 24.9399241987782, 121.711426853786 24.9394227316153, 121.711732693829 24.9389652277296, 121.711848773623 24.9384800083332, 121.711704331731 24.9380575425, 121.711625461411 24.9377988967111, 121.711885938967 24.9374010060752, 121.712192004032 24.9370800819534, 121.712505259773 24.9364200036252, 121.712846950312 24.9369748142689, 121.713042421723 24.9374565739723, 121.713393390222 24.9385368874938, 121.713358017516 24.9388733663745, 121.713231614491 24.9398739140128, 121.713075939709 24.9403374072396, 121.713042475375 24.940805390131, 121.712921619816 24.9411724110635, 121.712618691383 24.9417040896856, 121.713473492111 24.942083069612, 121.714035474903 24.9423674624638, 121.714201266449 24.9425949873511, 121.714235891506 24.9428287769486, 121.71410880407 24.943151492306, 121.7139828395 24.9433743479042, 121.713620531222 24.943396367787, 121.713212541741 24.9433914685884, 121.71299198724 24.943414288001, 121.713549084162 24.9435710487063, 121.71411859802 24.9435807565801, 121.715548708835 24.943306988336, 121.716478953355 24.9430418146735, 121.71694916411 24.9428801579029, 121.717728772876 24.9433504205082, 121.717866347997 24.9436811286101, 121.717657732706 24.9438742931812, 121.717233118149 24.9434352055773, 121.7169576902 24.9434567167935, 121.716942641155 24.9437149638452, 121.717518273811 24.9442234307006, 121.718212139028 24.944554007947, 121.718515124745 24.9449129004566, 121.71898387074 24.9452606739468, 121.720284306877 24.9448169470302, 121.720700089143 24.9450149030176, 121.720843298993 24.9453028884843, 121.721272312509 24.9455161754089, 121.721304963837 24.9459967263415, 121.721999441362 24.9464423802796, 121.722448221863 24.9464459695238, 121.722941294121 24.9466516165563, 121.723829941868 24.9469290397635, 121.72421149474 24.9471542464239, 121.724822499168 24.9470891370468, 121.725654322483 24.9475425365433, 121.726696542954 24.9479574165051, 121.727328959868 24.9478410873747, 121.727762535859 24.9479632856451, 121.728023583282 24.9482284932073, 121.728766150518 24.9480166046163, 121.729098836286 24.9480818265889, 121.729368052312 24.948250041631, 121.729891995558 24.9482846425352, 121.7302059204 24.9485006760196, 121.730651287099 24.9488895405497, 121.731183957446 24.9488827125296, 121.731674756623 24.9492792060984, 121.731781765454 24.949454096831, 121.731574771678 24.9496235949087, 121.731488518984 24.9498649916407, 121.732112694172 24.9503250792891, 121.732343749429 24.9505780358027, 121.732300815535 24.9512210394838, 121.732523113381 24.9512141513913, 121.732845413753 24.9510473595189, 121.733551909944 24.9517204865616, 121.735172273173 24.9518066634917, 121.735694199147 24.9515022711891, 121.736455350512 24.9518595031371, 121.737140180384 24.9515930983738, 121.737278784612 24.9516241433782, 121.737221801003 24.9525164666271, 121.737765552944 24.9526771837905, 121.737722122856 24.9528220546213, 121.737357656733 24.9536128934262, 121.737355377206 24.9537785867153, 121.737318302173 24.9539616804585, 121.737017232485 24.9545245096899, 121.737202564295 24.9554368071363, 121.737178734342 24.9558826156412, 121.736902632554 24.9561808610682, 121.736571376667 24.9565554844649, 121.736172904513 24.957180019397, 121.736354283771 24.9573525143519, 121.736635479317 24.957093672465, 121.737096806779 24.956809208825, 121.737338433185 24.9566960455401, 121.737479904061 24.9567914161452, 121.736977952772 24.9571049138869, 121.736743193138 24.9573916023787, 121.736653507058 24.9576464478731, 121.736431156961 24.9577671979617, 121.735989717316 24.9576112206998, 121.735647943903 24.9579026072506, 121.735267088173 24.9578204508995, 121.734919396144 24.957672842347, 121.734720111633 24.9577021964138, 121.734850532578 24.9579191105046, 121.735363955504 24.9581992755347, 121.736086394401 24.9582184948585, 121.736266301816 24.9583524787804, 121.736179249997 24.9585076928588, 121.736009865022 24.9585524226359, 121.735517656173 24.9584577086854, 121.735282616261 24.9584708624172, 121.735061831964 24.9586997021599, 121.735108512623 24.9588128589508, 121.735221679988 24.9588549507662, 121.735433506081 24.9586339685748, 121.735601806264 24.9586181841174, 121.736065190123 24.9587750981673, 121.736239784387 24.9590475990425, 121.73667975742 24.9592117592008, 121.73671910366 24.9598850937346, 121.735929741185 24.96041120582, 121.735794281849 24.9604753589108, 121.735690665566 24.960560590816, 121.735636077476 24.9609390931155, 121.735413681551 24.9616218606521, 121.735361115241 24.9616640179866, 121.735292374683 24.9616255265079, 121.735063913415 24.9611003915598, 121.734942606547 24.9609849165587, 121.734555940905 24.9608117038539, 121.734394198414 24.9608208685534, 121.734118730735 24.9608731073274, 121.733971140712 24.9608483626477, 121.733752282904 24.9607594650538, 121.733488945911 24.9607356368218, 121.733195787647 24.9606806485766, 121.733038088718 24.9607136415267, 121.732971369941 24.9608318661919, 121.732941043224 24.9611507972803, 121.732734316103 24.9613276753725, 121.73251394196 24.9613899950543, 121.732270822778 24.9613111789809, 121.73207875357 24.9613203436432, 121.731805813117 24.9614669781471, 121.731534389 24.961834480105, 121.730763584943 24.9623669435886, 121.730617511256 24.9623632777549, 121.730259655995 24.9622166443188, 121.730101957067 24.9622258089137, 121.729968014067 24.9623018750248, 121.729631892953 24.9626611263842, 121.729405453466 24.9626959517154, 121.728723607779 24.9625199920467, 121.728511320759 24.9624924983257, 121.728270728805 24.9625713136427, 121.727768821638 24.9629039870408, 121.727586861336 24.9628838250423, 121.727402879253 24.9627903466423, 121.727301790196 24.9628160073866, 121.727251245668 24.9629149844932, 121.727285615947 24.9630451209381, 121.727408944596 24.9631312675231, 121.727741022147 24.9635592501952, 121.727925004231 24.9635812449818, 121.728218162495 24.9633576311347, 121.728459259895 24.9633704614483, 121.728932356681 24.9635977410692, 121.729039511081 24.9637122971706, 121.729100164515 24.9639029182871, 121.729071859579 24.9640330536874, 121.728703389967 24.9643574751425, 121.728266179797 24.9648477714816, 121.728106459087 24.9654480381716, 121.727556534619 24.9657550436676, 121.727289659509 24.9659346644386, 121.727180483328 24.9661152013778, 121.72714813483 24.9665211794158, 121.727368508974 24.9674229407404, 121.727465554468 24.9674156093742, 121.727421075283 24.9671131901362, 121.72725528923 24.966532176545, 121.727249223887 24.9661601064637, 121.727358336887 24.9659895357825, 121.727671712963 24.965791586435, 121.728060400386 24.9655872217283, 121.728228713665 24.9653681937063, 121.728335868065 24.9648815651993, 121.728738202511 24.9644059320873, 121.729166820112 24.9640622654, 121.729166820112 24.9638936392612, 121.729126384489 24.9637121826146, 121.729020746425 24.9635921278175, 121.728464756613 24.9633153598238, 121.728214055752 24.9633061953101, 121.727906239575 24.9635261434517, 121.727795041612 24.9635059815551, 121.727465491287 24.9630679177131, 121.727356315106 24.9630220950454, 121.727325988389 24.9628827940309, 121.727392707166 24.962855300391, 121.727583260038 24.9629836039914, 121.727777351027 24.9630019330663, 121.728300992341 24.9626371839634, 121.728552704092 24.9625771560552, 121.728712551163 24.9625698244002, 121.729400462194 24.962764113108, 121.729524043566 24.9627723612067, 121.729671886311 24.9627288295683, 121.730026961623 24.9623672872605, 121.730140181366 24.9622985528613, 121.730240259532 24.9623003857791, 121.73061984894 24.9624525178622, 121.730818236214 24.9624360216213, 121.731136666743 24.9622004917187, 121.731589292994 24.9618953102796, 121.731881440368 24.9615278085033, 121.732102067234 24.9614091262739, 121.73226810601 24.9613972122213, 121.732462196999 24.9614540330768, 121.732648453586 24.9614402860981, 121.732804383456 24.9613962957557, 121.733028042994 24.961183675546, 121.733055842484 24.9608317516331, 121.733087875079 24.9607678278457, 121.733205138385 24.9607522478494, 121.733723472523 24.9608425201532, 121.734078547835 24.960951121771, 121.734408350882 24.9608952171527, 121.734555940905 24.9609025489074, 121.734904950873 24.9610698044421, 121.735010083492 24.9611696994202, 121.735206701707 24.9616517602849, 121.735301725421 24.9617489054017, 121.735414945164 24.9617452395496, 121.73549202557 24.9616778794984, 121.73571972867 24.9608860524588, 121.735780382104 24.9605969060144, 121.735860242459 24.9605190059053, 121.736116250495 24.960398489757, 121.736351787997 24.9601789942637, 121.736667944022 24.9600245681811, 121.736658087839 24.9603302124952, 121.736601477967 24.9605180894331, 121.736370489473 24.9609149212424, 121.736363413239 24.9611243342796, 121.736392729065 24.9612925059794, 121.736750837049 24.9619166180172, 121.736882252822 24.9622341716059, 121.73687820926 24.9623578935615, 121.736829686513 24.9624124228284, 121.736675020256 24.9624839065321, 121.736537286416 24.9625654712299, 121.736375543926 24.9627505953894, 121.736056860674 24.9629238053657, 121.735963606019 24.963015908984, 121.735841288261 24.9632555613593, 121.735727815795 24.963319254742, 121.735626726738 24.9633242952241, 121.735322195955 24.9631616250154, 121.735054309954 24.9629838331049, 121.734899138252 24.9629297623183, 121.734687862124 24.9629517572174, 121.734557457241 24.9629975799112, 121.734480124112 24.963175371802, 121.734465971644 24.963436560454, 121.734338599433 24.9635556989533, 121.734166242591 24.9636125188123, 121.733545555783 24.9635630305494, 121.733347421232 24.9636051872191, 121.733288789579 24.9636913334121, 121.733273626221 24.963774730201, 121.733279691564 24.964122979918, 121.733214994568 24.9641953790775, 121.732697418598 24.9643365114939, 121.73261250379 24.9644501504648, 121.732602394884 24.9646178593995, 121.732661026537 24.9649468615091, 121.732784355186 24.9651429793399, 121.732887007436 24.9651667874544, 121.733678487893 24.9652181272109, 121.734554078035 24.9654982632888, 121.735471276728 24.9655656819932, 121.735235779767 24.965992666264, 121.735372120113 24.9672511376019, 121.735496065882 24.9673073190579, 121.735694379113 24.9667230306612, 121.73554564419 24.9661949214542, 121.735793535729 24.966262339777, 121.736004243537 24.9666219035417, 121.736500026614 24.9667792123584, 121.738247661963 24.9647341820565, 121.739412752196 24.9648128376965, 121.739673038311 24.9652398245794, 121.739177255234 24.9657904107415, 121.74020600512 24.9668129213644, 121.740912496005 24.9665544854158, 121.741792510968 24.9673522642043, 121.742709709662 24.9680601480943, 121.743155914432 24.9680713843137, 121.744519317895 24.9672511376019, 121.744705236549 24.9667792123584, 121.745684408128 24.9661499758851, 121.746217374936 24.9658803021259, 121.746973444129 24.965273534007, 121.747394859745 24.9652173516225, 121.748076561477 24.9654533174652, 121.748076561477 24.9657342285929, 121.747692329592 24.9663409944403, 121.747853459092 24.9663859399396, 121.74867150117 24.9655432090959, 121.74883263067 24.9656218642188, 121.748634317439 24.9658915385443, 121.749675461902 24.9657454650247, 121.750196034134 24.9654982632888, 121.750530687711 24.9655094997421, 121.750890130443 24.9659140113781, 121.751683383367 24.965992666264, 121.752253533906 24.9662173942326, 121.753059181407 24.9660825575007, 121.753914407216 24.9649813853272, 121.754360611986 24.9650712773026, 121.754583714371 24.9648465472411, 121.755451334757 24.9644195589938, 121.756021485296 24.9622845955362, 121.756095852758 24.9618351248261, 121.757013051451 24.9617227568922, 121.755649647988 24.9614530734321, 121.756442900912 24.9611609156835, 121.757855882683 24.9610934945662, 121.758649135608 24.9613407051493, 121.758773081377 24.9608912309925, 121.758797870531 24.9602844382772, 121.759789436686 24.9594753766706, 121.760781002841 24.9607339146498, 121.760781002841 24.9613182314805, 121.761574255766 24.9620598603863, 121.761970882228 24.9620149133071, 121.762094827997 24.9625992240566, 121.762962448383 24.9628464316156, 121.763160761614 24.9632284786847, 121.764053171154 24.963340845244, 121.764697689155 24.9631610586998, 121.76536699631 24.9632284786847, 121.765961936003 24.9627340646049, 121.766532086542 24.9630262186194, 121.767374917774 24.9628689050055, 121.768069014083 24.9632958986326, 121.768540008006 24.9638577300956, 121.768986212776 24.9640824619626, 121.769125571856 24.9646600586348, 121.769428403776 24.9649542059419)","wkt0":"LINESTRING (121.712062196464 24.9358864444295, 121.712846950312 24.9369748142689, 121.713042421723 24.9374565739723, 121.713393390222 24.9385368874938, 121.713358017516 24.9388733663745, 121.713231614491 24.9398739140128, 121.713075939709 24.9403374072396, 121.713042475375 24.940805390131, 121.712921619816 24.9411724110635, 121.712618691383 24.9417040896856, 121.713473492111 24.942083069612, 121.714035474903 24.9423674624638, 121.714201266449 24.9425949873511, 121.714235891506 24.9428287769486, 121.71410880407 24.943151492306, 121.7139828395 24.9433743479042, 121.713620531222 24.943396367787, 121.713212541741 24.9433914685884, 121.71299198724 24.943414288001, 121.713549084162 24.9435710487063, 121.71411859802 24.9435807565801, 121.715548708835 24.943306988336, 121.716478953355 24.9430418146735, 121.71694916411 24.9428801579029, 121.717728772876 24.9433504205082, 121.717866347997 24.9436811286101, 121.717657732706 24.9438742931812, 121.717233118149 24.9434352055773, 121.7169576902 24.9434567167935, 121.716942641155 24.9437149638452, 121.717518273811 24.9442234307006, 121.718212139028 24.944554007947, 121.718515124745 24.9449129004566, 121.71898387074 24.9452606739468, 121.720284306877 24.9448169470302, 121.720700089143 24.9450149030176, 121.720843298993 24.9453028884843, 121.721272312509 24.9455161754089, 121.721304963837 24.9459967263415, 121.721999441362 24.9464423802796, 121.722448221863 24.9464459695238, 121.722941294121 24.9466516165563, 121.723829941868 24.9469290397635, 121.72421149474 24.9471542464239, 121.724822499168 24.9470891370468, 121.725654322483 24.9475425365433, 121.726696542954 24.9479574165051, 121.727328959868 24.9478410873747, 121.727762535859 24.9479632856451, 121.728023583282 24.9482284932073, 121.728766150518 24.9480166046163, 121.729098836286 24.9480818265889, 121.729368052312 24.948250041631, 121.729891995558 24.9482846425352, 121.7302059204 24.9485006760196, 121.730651287099 24.9488895405497, 121.731183957446 24.9488827125296, 121.731674756623 24.9492792060984, 121.731781765454 24.949454096831, 121.731574771678 24.9496235949087, 121.731488518984 24.9498649916407, 121.732112694172 24.9503250792891, 121.732343749429 24.9505780358027, 121.732300815535 24.9512210394838, 121.732523113381 24.9512141513913, 121.732845413753 24.9510473595189, 121.733590204062 24.9516030518688, 121.735172273173 24.9518066634917, 121.735694199147 24.9515022711891, 121.736455350512 24.9518595031371, 121.737140180384 24.9515930983738, 121.737278784612 24.9516241433782, 121.737221801003 24.9525164666271, 121.737765552944 24.9526771837905, 121.737722122856 24.9528220546213, 121.737357656733 24.9536128934262, 121.737355377206 24.9537785867153, 121.737318302173 24.9539616804585, 121.737017232485 24.9545245096899, 121.737202564295 24.9554368071363, 121.737178734342 24.9558826156412, 121.736902632554 24.9561808610682, 121.736571376667 24.9565554844649, 121.736172904513 24.957180019397, 121.736354283771 24.9573525143519, 121.736635479317 24.957093672465, 121.737096806779 24.956809208825, 121.737338433185 24.9566960455401, 121.737479904061 24.9567914161452, 121.736977952772 24.9571049138869, 121.736743193138 24.9573916023787, 121.736653507058 24.9576464478731, 121.736431156961 24.9577671979617, 121.735989717316 24.9576112206998, 121.735647943903 24.9579026072506, 121.735267088173 24.9578204508995, 121.734919396144 24.957672842347, 121.734720111633 24.9577021964138, 121.734850532578 24.9579191105046, 121.735363955504 24.9581992755347, 121.736086394401 24.9582184948585, 121.736266301816 24.9583524787804, 121.736179249997 24.9585076928588, 121.736009865022 24.9585524226359, 121.735517656173 24.9584577086854, 121.735282616261 24.9584708624172, 121.735061831964 24.9586997021599, 121.735108512623 24.9588128589508, 121.735221679988 24.9588549507662, 121.735433506081 24.9586339685748, 121.735601806264 24.9586181841174, 121.736043693391 24.9588321895252, 121.736646618992 24.9592739369956, 121.736724223278 24.9599872994646, 121.736386943114 24.9601066906728, 121.735929741185 24.96041120582, 121.735794281849 24.9604753589108, 121.735690665566 24.960560590816, 121.735636077476 24.9609390931155, 121.735413681551 24.9616218606521, 121.735361115241 24.9616640179866, 121.735292374683 24.9616255265079, 121.735063913415 24.9611003915598, 121.734942606547 24.9609849165587, 121.734555940905 24.9608117038539, 121.734394198414 24.9608208685534, 121.734118730735 24.9608731073274, 121.733971140712 24.9608483626477, 121.733752282904 24.9607594650538, 121.733488945911 24.9607356368218, 121.733195787647 24.9606806485766, 121.733038088718 24.9607136415267, 121.732971369941 24.9608318661919, 121.732941043224 24.9611507972803, 121.732734316103 24.9613276753725, 121.73251394196 24.9613899950543, 121.732270822778 24.9613111789809, 121.73207875357 24.9613203436432, 121.731805813117 24.9614669781471, 121.731534389 24.961834480105, 121.730763584943 24.9623669435886, 121.730617511256 24.9623632777549, 121.730259655995 24.9622166443188, 121.730101957067 24.9622258089137, 121.729968014067 24.9623018750248, 121.729631892953 24.9626611263842, 121.729405453466 24.9626959517154, 121.728723607779 24.9625199920467, 121.728511320759 24.9624924983257, 121.728270728805 24.9625713136427, 121.727768821638 24.9629039870408, 121.727586861336 24.9628838250423, 121.727402879253 24.9627903466423, 121.727301790196 24.9628160073866, 121.727251245668 24.9629149844932, 121.727285615947 24.9630451209381, 121.727408944596 24.9631312675231, 121.727741022147 24.9635592501952, 121.727925004231 24.9635812449818, 121.728218162495 24.9633576311347, 121.728459259895 24.9633704614483, 121.728932356681 24.9635977410692, 121.729039511081 24.9637122971706, 121.729100164515 24.9639029182871, 121.729071859579 24.9640330536874, 121.728703389967 24.9643574751425, 121.728266179797 24.9648477714816, 121.728106459087 24.9654480381716, 121.727556534619 24.9657550436676, 121.727289659509 24.9659346644386, 121.727180483328 24.9661152013778, 121.72714813483 24.9665211794158, 121.727368508974 24.9674229407404, 121.727465554468 24.9674156093742, 121.727421075283 24.9671131901362, 121.72725528923 24.966532176545, 121.727249223887 24.9661601064637, 121.727358336887 24.9659895357825, 121.727671712963 24.965791586435, 121.728060400386 24.9655872217283, 121.728228713665 24.9653681937063, 121.728335868065 24.9648815651993, 121.728738202511 24.9644059320873, 121.729166820112 24.9640622654, 121.729166820112 24.9638936392612, 121.729126384489 24.9637121826146, 121.729020746425 24.9635921278175, 121.728464756613 24.9633153598238, 121.728214055752 24.9633061953101, 121.727906239575 24.9635261434517, 121.727795041612 24.9635059815551, 121.727465491287 24.9630679177131, 121.727356315106 24.9630220950454, 121.727325988389 24.9628827940309, 121.727392707166 24.962855300391, 121.727583260038 24.9629836039914, 121.727777351027 24.9630019330663, 121.728300992341 24.9626371839634, 121.728552704092 24.9625771560552, 121.728712551163 24.9625698244002, 121.729400462194 24.962764113108, 121.729524043566 24.9627723612067, 121.729671886311 24.9627288295683, 121.730026961623 24.9623672872605, 121.730140181366 24.9622985528613, 121.730240259532 24.9623003857791, 121.73061984894 24.9624525178622, 121.730818236214 24.9624360216213, 121.731136666743 24.9622004917187, 121.731589292994 24.9618953102796, 121.731881440368 24.9615278085033, 121.732102067234 24.9614091262739, 121.73226810601 24.9613972122213, 121.732462196999 24.9614540330768, 121.732648453586 24.9614402860981, 121.732804383456 24.9613962957557, 121.733028042994 24.961183675546, 121.733055842484 24.9608317516331, 121.733087875079 24.9607678278457, 121.733205138385 24.9607522478494, 121.733723472523 24.9608425201532, 121.734078547835 24.960951121771, 121.734408350882 24.9608952171527, 121.734555940905 24.9609025489074, 121.734904950873 24.9610698044421, 121.735010083492 24.9611696994202, 121.735206701707 24.9616517602849, 121.735301725421 24.9617489054017, 121.735414945164 24.9617452395496, 121.73549202557 24.9616778794984, 121.73571972867 24.9608860524588, 121.735780382104 24.9605969060144, 121.735860242459 24.9605190059053, 121.736116250495 24.960398489757, 121.736351787997 24.9601789942637, 121.736724223278 24.9600052081458, 121.736688405915 24.9603395035288, 121.736625725531 24.9605454533629, 121.736370489473 24.9609149212424, 121.736363413239 24.9611243342796, 121.736392729065 24.9612925059794, 121.736750837049 24.9619166180172, 121.736882252822 24.9622341716059, 121.73687820926 24.9623578935615, 121.736829686513 24.9624124228284, 121.736675020256 24.9624839065321, 121.736537286416 24.9625654712299, 121.736375543926 24.9627505953894, 121.736056860674 24.9629238053657, 121.735963606019 24.963015908984, 121.735841288261 24.9632555613593, 121.735727815795 24.963319254742, 121.735626726738 24.9633242952241, 121.735322195955 24.9631616250154, 121.735054309954 24.9629838331049, 121.734899138252 24.9629297623183, 121.734687862124 24.9629517572174, 121.734557457241 24.9629975799112, 121.734480124112 24.963175371802, 121.734465971644 24.963436560454, 121.734338599433 24.9635556989533, 121.734166242591 24.9636125188123, 121.733545555783 24.9635630305494, 121.733347421232 24.9636051872191, 121.733288789579 24.9636913334121, 121.733273626221 24.963774730201, 121.733279691564 24.964122979918, 121.733214994568 24.9641953790775, 121.732697418598 24.9643365114939, 121.73261250379 24.9644501504648, 121.732602394884 24.9646178593995, 121.732661026537 24.9649468615091, 121.732784355186 24.9651429793399, 121.732887007436 24.9651667874544, 121.733678487893 24.9652181272109, 121.734554078035 24.9654982632888, 121.735471276728 24.9655656819932, 121.735235779767 24.965992666264, 121.735372120113 24.9672511376019, 121.735496065882 24.9673073190579, 121.735694379113 24.9667230306612, 121.73554564419 24.9661949214542, 121.735793535729 24.966262339777, 121.736004243537 24.9666219035417, 121.736500026614 24.9667792123584, 121.738247661963 24.9647341820565, 121.739412752196 24.9648128376965, 121.739673038311 24.9652398245794, 121.739177255234 24.9657904107415, 121.74020600512 24.9668129213644, 121.740912496005 24.9665544854158, 121.741792510968 24.9673522642043, 121.742709709662 24.9680601480943, 121.743155914432 24.9680713843137, 121.744519317895 24.9672511376019, 121.744705236549 24.9667792123584, 121.745684408128 24.9661499758851, 121.746217374936 24.9658803021259, 121.746973444129 24.965273534007, 121.747394859745 24.9652173516225, 121.748076561477 24.9654533174652, 121.748076561477 24.9657342285929, 121.747692329592 24.9663409944403, 121.747853459092 24.9663859399396, 121.74867150117 24.9655432090959, 121.74883263067 24.9656218642188, 121.748634317439 24.9658915385443, 121.749675461902 24.9657454650247, 121.750196034134 24.9654982632888, 121.750530687711 24.9655094997421, 121.750890130443 24.9659140113781, 121.751683383367 24.965992666264, 121.752253533906 24.9662173942326, 121.753059181407 24.9660825575007, 121.753914407216 24.9649813853272, 121.754360611986 24.9650712773026, 121.754583714371 24.9648465472411, 121.755451334757 24.9644195589938, 121.756014857742 24.9618587566531, 121.757013051451 24.9617227568922, 121.755649647988 24.9614530734321, 121.756442900912 24.9611609156835, 121.757855882683 24.9610934945662, 121.758649135608 24.9613407051493, 121.758773081377 24.9608912309925, 121.758797870531 24.9602844382772, 121.759789436686 24.9594753766706, 121.760781002841 24.9607339146498, 121.760781002841 24.9613182314805, 121.761303888266 24.9618706957739, 121.761876966065 24.9620975390695, 121.762094827997 24.9625992240566, 121.762962448383 24.9628464316156, 121.763160761614 24.9632284786847, 121.764053171154 24.963340845244, 121.764697689155 24.9631610586998, 121.76536699631 24.9632284786847, 121.765961936003 24.9627340646049, 121.766532086542 24.9630262186194, 121.767374917774 24.9628689050055, 121.768069014083 24.9632958986326, 121.768540008006 24.9638577300956, 121.768986212776 24.9640824619626, 121.769125571856 24.9646600586348, 121.769437843465 24.9649415905443, 121.769780428604 24.9651956745219, 121.769871784641 24.9652870305588, 121.770268612426 24.9654725975088, 121.770648310954 24.9658151826472, 121.770868136418 24.9659322325695, 121.771139349653 24.9659550715787, 121.771353465364 24.9660314395158, 121.771687485874 24.9662255710942, 121.77213570143 24.9663511856449, 121.772295574495 24.9663397661403, 121.772341252513 24.9661941674565, 121.772167105068 24.9656802897489, 121.772204218458 24.9655232715605, 121.772255606228 24.9654119313905, 121.772364091522 24.9653063009729, 121.772478286568 24.9652327879119, 121.772703821785 24.9651499965035, 121.773077810561 24.9650443660858, 121.773380427433 24.9650186722004, 121.773520316364 24.9650500758381, 121.773760125961 24.9651557062558, 121.774402473096 24.9654975776751, 121.774533797399 24.9657630811574, 121.774588040046 24.966017165135, 121.774590894922 24.966222716218, 121.774545216903 24.9663568953972, 121.774356795077 24.9665424623472, 121.77428827805 24.9666595122695, 121.774276858545 24.9668215264911, 121.774348230449 24.9669642702988, 121.7747850265 24.9674460306496, 121.774984867831 24.9678792581059, 121.775076223868 24.967993453152, 121.775264645694 24.9680848091889, 121.775644344222 24.9682639526675, 121.775804217287 24.9683595910186, 121.776019760436 24.9686589961552, 121.776169641434 24.9688145869056, 121.776423725412 24.9689312799683, 121.77649937963 24.9689912323675, 121.776532210706 24.9690597493952, 121.776525073516 24.9691596700606, 121.776447991859 24.9694704947017, 121.776466548554 24.9696218031379, 121.776740616665 24.9698084406664, 121.77687765072 24.969989011583, 121.777188832221 24.9704871874718, 121.777277333382 24.970641350784, 121.777394383304 24.9707612555825, 121.777634192901 24.9709432539372, 121.777839743984 24.9711916281626, 121.777939664649 24.9712487256856, 121.778048149943 24.9712201769241, 121.778082408457 24.9711516598964, 121.778019601182 24.9707327068209, 121.77787971225 24.9701995586993, 121.777722694062 24.9697741821525, 121.777708419681 24.9696000347072, 121.777736968442 24.9694744201564, 121.77795393903 24.9692010657648, 121.778079553581 24.9689498366633, 121.778172337056 24.9687785440941, 121.778237060049 24.9687002018793, 121.778296820204 24.9686689636168, 121.77830361113 24.9686974855086, 121.778249283717 24.9687300819564, 121.77819903086 24.968799349408)","wkt1":"LINESTRING (121.778335064997 24.9687253720257, 121.77825084615 24.9687710500442, 121.778178046808 24.9688538414526, 121.77798391523 24.9692206930383, 121.777789783651 24.969448726271, 121.777735541004 24.9696125247903, 121.777766944642 24.9697795350453, 121.777908261012 24.9701499552262, 121.778135223666 24.9711427384084, 121.77802816581 24.9712540785784, 121.77794680184 24.971284054778, 121.777846881174 24.9712512237022, 121.777598506949 24.9709714458392, 121.777365834543 24.9707887337654, 121.777240219992 24.9706424213626, 121.777050370728 24.9703084008527, 121.776839109892 24.9699961487734, 121.776710640465 24.969848052073, 121.776453701612 24.9696539204946, 121.776403741279 24.9694787024707, 121.776480822935 24.9691750150199, 121.776480822935 24.9690822315449, 121.776445136983 24.9690080047649, 121.776365200451 24.968953762118, 121.776148229863 24.9688541983122, 121.775995493989 24.9686986075618, 121.775928404399 24.9686076083844, 121.775771386211 24.9683977749872, 121.775454494958 24.9682068551444, 121.775040537916 24.9680145078636, 121.774952036755 24.9679092343055, 121.774760760053 24.9674713676755, 121.77429541524 24.9669692663321, 121.774248309783 24.9668440086408, 121.774231180526 24.9667212489662, 121.77425830185 24.9666113362344, 121.774515240704 24.9663122879573, 121.774549499217 24.9662437709296, 121.774545216903 24.9660396472847, 121.774500966323 24.965774500662, 121.774368214582 24.96552362842, 121.774158381184 24.9653680376697, 121.77377582778 24.9651956745219, 121.773494622479 24.9650629227808, 121.773271942139 24.9650515032762, 121.773072100808 24.9650771971616, 121.772732370546 24.9651699806365, 121.772546803596 24.9652356427881, 121.772374083589 24.9653362771725, 121.772261315981 24.9654804484182, 121.77220279102 24.9656770780132, 121.772379793341 24.9661963086136, 121.772319840942 24.9663376249832, 121.772171387382 24.9663790206874, 121.772077176469 24.9663761658112, 121.771681776122 24.9662348494417, 121.771454813467 24.966121011255, 121.771129357586 24.9659714871165, 121.770872418732 24.9659515029835, 121.770656875583 24.9658615743846, 121.770531261032 24.9657630811573, 121.770237208788 24.9654882993276, 121.769843235879 24.9653027323777, 121.769788993232 24.9652028117123, 121.769577732397 24.9650829069139, 121.769428403776 24.9649542059419, 121.769125571856 24.9646600586348, 121.768986212776 24.9640824619626, 121.768540008006 24.9638577300956, 121.768069014083 24.9632958986326, 121.767374917774 24.9628689050055, 121.766532086542 24.9630262186194, 121.765961936003 24.9627340646049, 121.76536699631 24.9632284786847, 121.764697689155 24.9631610586998, 121.764053171154 24.963340845244, 121.763160761614 24.9632284786847, 121.762962448383 24.9628464316156, 121.762094827997 24.9625992240566, 121.761970882228 24.9620149133071, 121.761574255766 24.9620598603863, 121.760781002841 24.9613182314805, 121.760781002841 24.9607339146498, 121.759789436686 24.9594753766706, 121.758797870531 24.9602844382772, 121.758773081377 24.9608912309925, 121.758649135608 24.9613407051493, 121.757855882683 24.9610934945662, 121.756442900912 24.9611609156835, 121.755649647988 24.9614530734321, 121.757013051451 24.9617227568922, 121.756095852758 24.9618351248261, 121.756021485296 24.9622845955362, 121.755451334757 24.9644195589938, 121.754583714371 24.9648465472411, 121.754360611986 24.9650712773026, 121.753914407216 24.9649813853272, 121.753059181407 24.9660825575007, 121.752253533906 24.9662173942326, 121.751683383367 24.965992666264, 121.750890130443 24.9659140113781, 121.750530687711 24.9655094997421, 121.750196034134 24.9654982632888, 121.749675461902 24.9657454650247, 121.748634317439 24.9658915385443, 121.74883263067 24.9656218642188, 121.74867150117 24.9655432090959, 121.747853459092 24.9663859399396, 121.747692329592 24.9663409944403, 121.748076561477 24.9657342285929, 121.748076561477 24.9654533174652, 121.747394859745 24.9652173516225, 121.746973444129 24.965273534007, 121.746217374936 24.9658803021259, 121.745684408128 24.9661499758851, 121.744705236549 24.9667792123584, 121.744519317895 24.9672511376019, 121.743155914432 24.9680713843137, 121.742709709662 24.9680601480943, 121.741792510968 24.9673522642043, 121.740912496005 24.9665544854158, 121.74020600512 24.9668129213644, 121.739177255234 24.9657904107415, 121.739673038311 24.9652398245794, 121.739412752196 24.9648128376965, 121.738247661963 24.9647341820565, 121.736500026614 24.9667792123584, 121.736004243537 24.9666219035417, 121.735793535729 24.966262339777, 121.73554564419 24.9661949214542, 121.735694379113 24.9667230306612, 121.735496065882 24.9673073190579, 121.735372120113 24.9672511376019, 121.735235779767 24.965992666264, 121.735471276728 24.9655656819932, 121.734554078035 24.9654982632888, 121.733678487893 24.9652181272109, 121.732887007436 24.9651667874544, 121.732784355186 24.9651429793399, 121.732661026537 24.9649468615091, 121.732602394884 24.9646178593995, 121.73261250379 24.9644501504648, 121.732697418598 24.9643365114939, 121.733214994568 24.9641953790775, 121.733279691564 24.964122979918, 121.733273626221 24.963774730201, 121.733288789579 24.9636913334121, 121.733347421232 24.9636051872191, 121.733545555783 24.9635630305494, 121.734166242591 24.9636125188123, 121.734338599433 24.9635556989533, 121.734465971644 24.963436560454, 121.734480124112 24.963175371802, 121.734557457241 24.9629975799112, 121.734687862124 24.9629517572174, 121.734899138252 24.9629297623183, 121.735054309954 24.9629838331049, 121.735322195955 24.9631616250154, 121.735626726738 24.9633242952241, 121.735727815795 24.963319254742, 121.735841288261 24.9632555613593, 121.735963606019 24.963015908984, 121.736056860674 24.9629238053657, 121.736375543926 24.9627505953894, 121.736537286416 24.9625654712299, 121.736675020256 24.9624839065321, 121.736829686513 24.9624124228284, 121.73687820926 24.9623578935615, 121.736882252822 24.9622341716059, 121.736750837049 24.9619166180172, 121.736392729065 24.9612925059794, 121.736363413239 24.9611243342796, 121.736370489473 24.9609149212424, 121.73664670903 24.9605239262233, 121.736734991076 24.9603527948724, 121.736749931115 24.9599575629428, 121.736351787997 24.9601789942637, 121.736116250495 24.960398489757, 121.735860242459 24.9605190059053, 121.735780382104 24.9605969060144, 121.73571972867 24.9608860524588, 121.73549202557 24.9616778794984, 121.735414945164 24.9617452395496, 121.735301725421 24.9617489054017, 121.735206701707 24.9616517602849, 121.735010083492 24.9611696994202, 121.734904950873 24.9610698044421, 121.734555940905 24.9609025489074, 121.734408350882 24.9608952171527, 121.734078547835 24.960951121771, 121.733723472523 24.9608425201532, 121.733205138385 24.9607522478494, 121.733087875079 24.9607678278457, 121.733055842484 24.9608317516331, 121.733028042994 24.961183675546, 121.732804383456 24.9613962957557, 121.732648453586 24.9614402860981, 121.732462196999 24.9614540330768, 121.73226810601 24.9613972122213, 121.732102067234 24.9614091262739, 121.731881440368 24.9615278085033, 121.731589292994 24.9618953102796, 121.731136666743 24.9622004917187, 121.730818236214 24.9624360216213, 121.73061984894 24.9624525178622, 121.730240259532 24.9623003857791, 121.730140181366 24.9622985528613, 121.730026961623 24.9623672872605, 121.729671886311 24.9627288295683, 121.729524043566 24.9627723612067, 121.729400462194 24.962764113108, 121.728712551163 24.9625698244002, 121.728552704092 24.9625771560552, 121.728300992341 24.9626371839634, 121.727777351027 24.9630019330663, 121.727583260038 24.9629836039914, 121.727392707166 24.962855300391, 121.727325988389 24.9628827940309, 121.727356315106 24.9630220950454, 121.727465491287 24.9630679177131, 121.727795041612 24.9635059815551, 121.727906239575 24.9635261434517, 121.728214055752 24.9633061953101, 121.728464756613 24.9633153598238, 121.729020746425 24.9635921278175, 121.729126384489 24.9637121826146, 121.729166820112 24.9638936392612, 121.729166820112 24.9640622654, 121.728738202511 24.9644059320873, 121.728335868065 24.9648815651993, 121.728228713665 24.9653681937063, 121.728060400386 24.9655872217283, 121.727671712963 24.965791586435, 121.727358336887 24.9659895357825, 121.727249223887 24.9661601064637, 121.72725528923 24.966532176545, 121.727421075283 24.9671131901362, 121.727465554468 24.9674156093742, 121.727368508974 24.9674229407404, 121.72714813483 24.9665211794158, 121.727180483328 24.9661152013778, 121.727289659509 24.9659346644386, 121.727556534619 24.9657550436676, 121.728106459087 24.9654480381716, 121.728266179797 24.9648477714816, 121.728703389967 24.9643574751425, 121.729071859579 24.9640330536874, 121.729100164515 24.9639029182871, 121.729039511081 24.9637122971706, 121.728932356681 24.9635977410692, 121.728459259895 24.9633704614483, 121.728218162495 24.9633576311347, 121.727925004231 24.9635812449818, 121.727741022147 24.9635592501952, 121.727408944596 24.9631312675231, 121.727285615947 24.9630451209381, 121.727251245668 24.9629149844932, 121.727301790196 24.9628160073866, 121.727402879253 24.9627903466423, 121.727586861336 24.9628838250423, 121.727768821638 24.9629039870408, 121.728270728805 24.9625713136427, 121.728511320759 24.9624924983257, 121.728723607779 24.9625199920467, 121.729405453466 24.9626959517154, 121.729631892953 24.9626611263842, 121.729968014067 24.9623018750248, 121.730101957067 24.9622258089137, 121.730259655995 24.9622166443188, 121.730617511256 24.9623632777549, 121.730763584943 24.9623669435886, 121.731534389 24.961834480105, 121.731805813117 24.9614669781471, 121.73207875357 24.9613203436432, 121.732270822778 24.9613111789809, 121.73251394196 24.9613899950543, 121.732734316103 24.9613276753725, 121.732941043224 24.9611507972803, 121.732971369941 24.9608318661919, 121.733038088718 24.9607136415267, 121.733195787647 24.9606806485766, 121.733488945911 24.9607356368218, 121.733752282904 24.9607594650538, 121.733971140712 24.9608483626477, 121.734118730735 24.9608731073274, 121.734394198414 24.9608208685534, 121.734555940905 24.9608117038539, 121.734942606547 24.9609849165587, 121.735063913415 24.9611003915598, 121.735292374683 24.9616255265079, 121.735361115241 24.9616640179866, 121.735413681551 24.9616218606521, 121.735636077476 24.9609390931155, 121.735690665566 24.960560590816, 121.735794281849 24.9604753589108, 121.735929741185 24.96041120582, 121.73671910366 24.9598850937346, 121.73667975742 24.9592117592008, 121.736239784387 24.9590475990425, 121.736065190123 24.9587750981673, 121.735601806264 24.9586181841174, 121.735433506081 24.9586339685748, 121.735221679988 24.9588549507662, 121.735108512623 24.9588128589508, 121.735061831964 24.9586997021599, 121.735282616261 24.9584708624172, 121.735517656173 24.9584577086854, 121.736009865022 24.9585524226359, 121.736179249997 24.9585076928588, 121.736266301816 24.9583524787804, 121.736086394401 24.9582184948585, 121.735363955504 24.9581992755347, 121.734850532578 24.9579191105046, 121.734720111633 24.9577021964138, 121.734919396144 24.957672842347, 121.735267088173 24.9578204508995, 121.735647943903 24.9579026072506, 121.735989717316 24.9576112206998, 121.736431156961 24.9577671979617, 121.736653507058 24.9576464478731, 121.736743193138 24.9573916023787, 121.736977952772 24.9571049138869, 121.737479904061 24.9567914161452, 121.737338433185 24.9566960455401, 121.737096806779 24.956809208825, 121.736635479317 24.957093672465, 121.736354283771 24.9573525143519, 121.736172904513 24.957180019397, 121.736571376667 24.9565554844649, 121.736902632554 24.9561808610682, 121.737178734342 24.9558826156412, 121.737202564295 24.9554368071363, 121.737017232485 24.9545245096899, 121.737318302173 24.9539616804585, 121.737355377206 24.9537785867153, 121.737357656733 24.9536128934262, 121.737722122856 24.9528220546213, 121.737765552944 24.9526771837905, 121.737221801003 24.9525164666271, 121.737278784612 24.9516241433782, 121.737140180384 24.9515930983738, 121.736455350512 24.9518595031371, 121.735694199147 24.9515022711891, 121.735172273173 24.9518066634917, 121.733551909944 24.9517204865616, 121.732845413753 24.9510473595189, 121.732523113381 24.9512141513913, 121.732300815535 24.9512210394838, 121.732343749429 24.9505780358027, 121.732112694172 24.9503250792891, 121.731488518984 24.9498649916407, 121.731574771678 24.9496235949087, 121.731781765454 24.949454096831, 121.731674756623 24.9492792060984, 121.731183957446 24.9488827125296, 121.730651287099 24.9488895405497, 121.7302059204 24.9485006760196, 121.729891995558 24.9482846425352, 121.729368052312 24.948250041631, 121.729098836286 24.9480818265889, 121.728766150518 24.9480166046163, 121.728023583282 24.9482284932073, 121.727762535859 24.9479632856451, 121.727328959868 24.9478410873747, 121.726696542954 24.9479574165051, 121.725654322483 24.9475425365433, 121.724822499168 24.9470891370468, 121.72421149474 24.9471542464239, 121.723829941868 24.9469290397635, 121.722941294121 24.9466516165563, 121.722448221863 24.9464459695238, 121.721999441362 24.9464423802796, 121.721304963837 24.9459967263415, 121.721272312509 24.9455161754089, 121.720843298993 24.9453028884843, 121.720700089143 24.9450149030176, 121.720284306877 24.9448169470302, 121.71898387074 24.9452606739468, 121.718515124745 24.9449129004566, 121.718212139028 24.944554007947, 121.717518273811 24.9442234307006, 121.716942641155 24.9437149638452, 121.7169576902 24.9434567167935, 121.717233118149 24.9434352055773, 121.717657732706 24.9438742931812, 121.717866347997 24.9436811286101, 121.717728772876 24.9433504205082, 121.71694916411 24.9428801579029, 121.716478953355 24.9430418146735, 121.715548708835 24.943306988336, 121.71411859802 24.9435807565801, 121.713549084162 24.9435710487063, 121.71299198724 24.943414288001, 121.713212541741 24.9433914685884, 121.713620531222 24.943396367787, 121.7139828395 24.9433743479042, 121.71410880407 24.943151492306, 121.714235891506 24.9428287769486, 121.714201266449 24.9425949873511, 121.714035474903 24.9423674624638, 121.713473492111 24.942083069612, 121.712618691383 24.9417040896856, 121.712921619816 24.9411724110635, 121.713042475375 24.940805390131, 121.713075939709 24.9403374072396, 121.713231614491 24.9398739140128, 121.713358017516 24.9388733663745, 121.713393390222 24.9385368874938, 121.713042421723 24.9374565739723, 121.712846950312 24.9369748142689, 121.712505259773 24.9364200036252, 121.712192004032 24.9370800819534, 121.711885938967 24.9374010060752, 121.711625461411 24.9377988967111, 121.711704331731 24.9380575425, 121.711848773623 24.9384800083332, 121.711732693829 24.9389652277296, 121.711426853786 24.9394227316153, 121.711249855137 24.9399241987782, 121.711243242585 24.9404079363352, 121.711343056386 24.9408516914675, 121.711526925311 24.9411074218114, 121.712061297418 24.9411741114144, 121.712257301073 24.9413623952227, 121.712270456016 24.9416312070312)","CustomRouteInfo":null,"CustomRouteInfoEN":null});
+        var objArr = jQuery.parseJSON(routeJsonString);
+        var TrackObj=null;
+        var layerWkt=null;
+        var layerWkt0=null;
+        var layerWkt1=null;
+
+        $(function() {
+            // Configure toastr options
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            // Init Map
+            initialize();
+            //// 畫去程的站點
+            pointRouteStopsLMap(true);
+            //// 畫路線軌跡
+            //drawRouteTrack();
+
+            //var routePathBounds = new google.maps.LatLngBounds();
+            //var path = new google.maps.MVCArray();
+
+            if ((objArr.wkt != null && objArr.wkt.length != 0)||(objArr.wkt0 != null && objArr.wkt0.length != 0)) {
+                var latlngs = [];
+                //for (var i = 0; i < objArr.RouteTracks.length; i++) {
+                //    var pointA = [objArr.RouteTracks[i]
+                //        .Latitude,
+                //        objArr.RouteTracks[i].Longitude];
+                //    latlngs.push(pointA);
+                //}
+                if (TrackObj != null)
+                {
+                    map.removeLayer(TrackObj);
+                }
+                var wkt = new Wkt.Wkt();
+                if (objArr.wkt0==null)
+                {
+                    wkt.read(objArr.wkt);}
+                else{
+                    wkt.read(objArr.wkt0);
+                }
+
+                if( map==null)
+                {}
+                else{
+                    //map.defaults.color = '#9863b6';
+                    TrackObj= wkt.toObject({
+                        color: '#9863b6',
+                        strokeColor: '#9863b6',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#9863b6',
+                        fillOpacity: 0.35,
+                        editable: false
+                    }); // Make an object
+                    TrackObj.addTo(map);
+
+                    //var firstpolyline = L.polyline(latlngs ,{ color: '#9863b6',
+                    //    weight: 4,
+                    //    opacity: 1.0,
+                    //    smoothFactor: 1}).addTo(map);
+                    //map.fitBounds(firstpolyline.getBounds());
+                    //routePath=firstpolyline;
+
+                }
+            }
+
+            $('.stationlist-go, .stationlist-come')
+                .click(function() {
+                    if ($(this).hasClass('stationlist-go')) {
+                        if ($(this).hasClass('stationlist-come-go')) {
+                            event.preventDefault();
+                        } else {
+                            $('.stationlist-go, .stationlist-come').toggleClass('stationlist-come-go-gray');
+                            $('.stationlist-go, .stationlist-come').toggleClass('stationlist-come-go');
+
+                            $('#GoDirectionRoute').toggle("left");
+                            $('#BackDirectionRoute').toggle("left");
+
+                            pointRouteStopsLMap(true);
+
+                            TrackObj.setStyle({
+                                color: '#9863b6'
+                            });
+                            TrackObj.options.color="#9863b6";
+                            if ((objArr.wkt != null && objArr.wkt.length != 0)||(objArr.wkt0 != null && objArr.wkt0.length != 0)){ if( map==null)
+                            {}
+                            else{
+                                if( map==null)
+                                {}
+                                else{
+                                    if (TrackObj != null)
+                                    {
+                                        map.removeLayer(TrackObj);
+                                    }
+                                    var wkt = new Wkt.Wkt();
+                                    if (objArr.wkt0==null)
+                                    {
+                                        wkt.read(objArr.wkt);}
+                                    else{
+                                        wkt.read(objArr.wkt0);
+                                    }
+                                    TrackObj= wkt.toObject({
+                                        color: '#9863b6',
+                                        strokeColor: '#9863b6',
+                                        strokeOpacity: 0.8,
+                                        strokeWeight: 2,
+                                        fillColor: '#9863b6',
+                                        fillOpacity: 0.35,
+                                        editable: false
+                                    }); // Make an object
+                                    TrackObj.setStyle({
+                                        color: '#9863b6'
+                                    });
+                                    TrackObj.options.color="#9863b6";
+                                    TrackObj.addTo(map);
+                                }
+
+
+
+                            }
+                            }
+                            stopStationStatusReport();
+                            stationStatusReport();
+                            stopBusStatusReport();
+                            busStatusReport();
+
+
+                        }
+
+                    }
+                    if ($(this).hasClass('stationlist-come')) {
+                        if ($(this).hasClass('stationlist-come-go')) {
+                            event.preventDefault();
+                        } else {
+                            $('.stationlist-go, .stationlist-come').toggleClass('stationlist-come-go-gray');
+                            $('.stationlist-go, .stationlist-come').toggleClass('stationlist-come-go');
+
+                            $('#GoDirectionRoute').toggle("right");
+                            $('#BackDirectionRoute').toggle("right");
+                            pointRouteStopsLMap(false);
+
+                            TrackObj.setStyle({
+                                color: '#916955'
+                            });
+                            TrackObj.options.color="#916955";
+                            if ((objArr.wkt != null && objArr.wkt.length != 0)||(objArr.wkt1 != null && objArr.wkt1.length != 0)) {if( map==null)
+                            {}
+                            else{
+                                if (TrackObj != null)
+                                {
+                                    map.removeLayer(TrackObj);
+                                }
+                                var wkt = new Wkt.Wkt();
+                                if (objArr.wkt1==null)
+                                {
+                                    wkt.read(objArr.wkt);}
+                                else{
+                                    wkt.read(objArr.wkt1);
+                                }
+                                TrackObj= wkt.toObject({
+                                    color: '#9863b6',
+                                    strokeColor: '#9863b6',
+                                    strokeOpacity: 0.8,
+                                    strokeWeight: 2,
+                                    fillColor: '#9863b6',
+                                    fillOpacity: 0.35,
+                                    editable: false
+                                }); // Make an object
+                                TrackObj.setStyle({
+                                    color: '#916955'
+                                });
+                                TrackObj.options.color="#916955";
+                                TrackObj.addTo(map);
+                            }}
+
+                            stopStationStatusReport();
+                            stationStatusReport();
+                            stopBusStatusReport();
+                            busStatusReport();
+                        }
+
+                    }
+                });
+
+            $('.stationlist-list-pool li a')
+                .click(function() {
+                    var idx = $(this).find('.auto-list-stationlist-number').text();
+                    var activedMarker = overlays[(parseInt(idx) - 1)];
+                    map.flyTo(activedMarker._latlng);
+                    activedMarker.openPopup();
+                    //google.maps.event.trigger(activedMarker, 'click');
+                    //centerMapTo(activedMarker.getPosition().lat(), activedMarker.getPosition().lng());
+
+                    var stopId = $(this).find('input[name="item.UniStopId"]').val();
+                    document.getElementById("routeList").href = SitePath + "Stop/RoutesOfStop?stopid=" + stopId;
+                    if('0454072100'=='0100020200' || '0454072100'=='0100027700')
+                    {
+                        stopStatusRecent3Report(stopId);//vic
+                    }
+                    //Set value to bus arrival alert dialog
+                    $('#selected_stop_id').val(stopId);
+                    $('#selected_stop_name').val($(this).find('.auto-list-stationlist-place').text());
+
+                    $("#Toolbar")
+                        .dialog({
+                            autoOpen: true,
+                            width: $('#Login_DL').width(),
+                            modal: true,
+                            show: {
+                                effect: "clip",
+                                duration: 600
+                            },
+                            buttons: {},
+                            hide: {
+                                effect: "clip",
+                                duration: 500
+                            }
+                        });
+                    $(".ui-dialog-titlebar").hide();
+                });
+
+            $('#busAlert')
+                .click(function() {
+                    $("#Toolbar").dialog("close");
+                    $("#Toolbar").dialog("destroy");
+                    $("#Toolbar").hide();
+
+                    $("#SetAlertTime")
+                        .dialog({
+                            autoOpen: true,
+                            width: 500,
+                            modal: true,
+                            show: {
+                                effect: "clip",
+                                duration: 600
+                            },
+                            buttons: {},
+                            hide: {
+                                effect: "clip",
+                                duration: 500
+                            }
+                        });
+                    $(".ui-dialog-titlebar").hide();
+                });
+
+
+            $('#addToMybus')
+                .click(function() {
+                    $("#Toolbar").dialog("close");
+                    $("#Toolbar").dialog("destroy");
+                    $("#Toolbar").hide();
+                    var isSuccess = true;
+                    $('#AddToMyBus').find('ul').html('');
+                    $.ajax({
+                        url: '/MyBus/MyBusGroup',
+                        type: 'post',
+                        dataType: 'json',
+                        beforeSend: function() {
+                        },
+                        error: function(response) {
+                            isSuccess = false;
+                            toastr["error"](i18n._('Not log in'), "");
+                        },
+                        success: function(response) {
+                            $.each(response,
+                                function(idx, value) {
+                                    $('#AddToMyBus')
+                                        .find('ul')
+                                        .append(
+                                            $('<li></li>')
+                                            .append($('<a>')
+                                                .attr({ href: "javascript:AddMyBus('" + value.GroupId + "');" })
+                                                .addClass('dialog-chose-bos-group')
+                                                .append(value.GroupName))
+                                        );
+                                });
+                        },
+                        complete: function() {
+                            if (isSuccess) {
+                                $("#AddToMyBus")
+                                    .dialog({
+                                        autoOpen: true,
+                                        modal: true,
+                                        width: $('#Login_DL').width(),
+                                        show: {
+                                            effect: "clip",
+                                            duration: 600
+                                        },
+                                        buttons: {},
+                                        hide: {
+                                            effect: "clip",
+                                            duration: 500
+                                        }
+                                    });
+                                $(".ui-dialog-titlebar").hide();
+                            }
+                        }
+                    });
+                });
+
+            //$('.stationlist-move-table-icon')
+            //    .click(function() {
+            //        toggleRouteListAndChart();
+            //    });
+
+            $('.stationlist-bus-info-table-icon')
+                .click(function() {
+                    $('.stationlist-move-route-bus-info').slideToggle();
+                });
+
+            stationStatusReport();
+            busStatusReport();
+
+
+        });
+
+        function AddMyBus(gid) {
+            var RouteId = objArr.UniRouteId;
+            var StopId = $('#selected_stop_id').val();
+            $('#AddToMyBus').dialog("close");
+            $('#AddToMyBus').dialog("destroy");
+            $('#AddToMyBus').hide();
+            addToMyBus(RouteId, StopId, gid);
+
+        }
+
+        function setAlertConfirm(stime) {
+            var RouteId = objArr.UniRouteId;
+            var RouteName = objArr.Name;
+            var StopId = $('#selected_stop_id').val();
+            var StopName = $('#selected_stop_name').val();
+            var direction = $('.stationlist-back').hasClass('stationlist-come-go') ? 0 : 1;
+            $('#SetAlertTime').dialog("close");
+            $('#SetAlertTime').dialog("destroy");
+            $('#SetAlertTime').hide();
+            AlertAdd(RouteId, RouteName, StopId, StopName, direction, stime);
+        }
+    </script>
+
+
+    <script>
+       
+        $(function () {
+            window.alert = sweetAlert;
+
+            // Selected language radio button
+            $('input[name=culture]').click(function () {
+                $('.teBUS-pad-main-nav-icon').slideToggle({
+                    complete: function () {
+                        $('#SetCultureForm').submit();
+                    }
+                })
+            });
+            $('#Loading_DL').show();
+            $('#Loading_DL').dialog({
+                autoOpen: false,
+                modal: true,
+                width: $('#Loading_DL').width(),
+                minHeight: 60,
+                show: false,
+                buttons: {},
+                hide: false
+            });
+            $(".ui-dialog-titlebar").hide();
+
+            // Scroll to Top Action
+            $('a.tebus-up').click(function () {
+                $('body, html').animate({
+                    scrollTop: 0
+                }, 700);
+                return false;
+            });
+        });
+
+        function OpenLoadingDialog() {
+            if ($('#Loading_DL').dialog("instance") !== undefined) {
+                $('#Loading_DL').dialog("open");
+            }
+        }
+
+        function CloseLoadingDialog() {
+            $('#Loading_DL').dialog("close");
+        }
+
+        function toggleMenu() {
+            $('.teBUS-pad-main-nav-icon').slideToggle();
+        }
+
+        function goTop() {
+            window.document.body.scrollTop = 0;
+        }
+
+        //$(".nav-language-link").click(function () {
+        //    href = $(this).attr('href');
+        //    lang = href.match('(^|/?)?culture=([^&]*)(&|$)');
+
+        //    localStorage["culture"] = lang[2];
+        //});
+    </script>
+</body>
+
+
+</html>
