@@ -72,7 +72,7 @@ come_df = convert_to_long_format(come_path, "come")
 full_df = pd.concat([go_df, come_df], ignore_index=True)
 
 # 輸出成新的 CSV
-full_df.to_csv("C:/Users/user/Desktop/cycu_oop11022328/midtest/full_route_stops.csv", index=False)
+full_df.to_csv("C:/Users/user/Desktop/cycu_oop11022328/20250605/full_route_stops.csv", index=False)
 
 print("✅ 轉換成功！檔案儲存為 full_route_stops.csv")
 
@@ -211,7 +211,7 @@ if __name__ == "__main__":
             route_id=selected["route_id"],
             csv_path=temp_csv,
             save_path=f"route_{selected['route_id']}_{selected['direction']}.png",
-            basemap_path="C:/Users/user/Desktop/cycu_oop11022328/midtest/Village_Sanhe.shp"
+            basemap_path="C:/Users/user/Desktop/cycu_oop11022328/20250605/Village_Sanhe.shp"
         )
 
 
