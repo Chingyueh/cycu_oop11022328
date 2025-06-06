@@ -32,8 +32,8 @@ def convert_to_long_format(file_path, direction):
     return long_df
 
 # 設定檔案路徑（根據你的實際路徑調整）
-go_path = "route_go.csv"
-come_path = "route_come.csv"
+go_path = "./20250605/route_go.csv"
+come_path = "./20250605/route_come.csv"
 
 # 分別轉換
 go_df = convert_to_long_format(go_path, "go")
@@ -42,8 +42,23 @@ come_df = convert_to_long_format(come_path, "come")
 # 合併兩份
 full_df = pd.concat([go_df, come_df], ignore_index=True)
 
-# 輸出成新的 CSV
-full_df.to_csv("C:/Users/user/Desktop/cycu_oop11022328/20250605/full_route_stops.csv", index=False)
+# 去除重複資料
+full_df = full_df.drop_duplicates()
+
+# 自動判斷方向（同一路線最小序號為 go，最大為 come）
+def infer_direction(group):
+    min_seq = group['stop_sequence'].min()
+    max_seq = group['stop_sequence'].max()
+    group['direction'] = group['stop_sequence'].apply(lambda x: 'go' if abs(x - min_seq) < abs(x - max_seq) else 'come')
+    return group
+
+full_df = full_df.groupby(['route_id', 'route_name']).apply(infer_direction).reset_index(drop=True)
+
+# 重新排序
+full_df = full_df.sort_values(['route_id', 'direction', 'stop_sequence'])
+
+# 儲存為 utf-8-sig，避免 Excel 亂碼
+full_df.to_csv("./20250605/full_route_stops.csv", index=False, encoding="utf-8-sig")
 
 print("✅ 轉換成功！檔案儲存為 full_route_stops.csv")
 
@@ -127,11 +142,34 @@ def find_bus_routes_from_df(df, start_stop, end_stop):
 
 # ---------- 主程式 ----------
 if __name__ == "__main__":
-    csv_path = "full_route_stops.csv"  # 已整理好的路線站點 CSV
+    csv_path = "./20250605/full_route_stops.csv"  # 已整理好的路線站點 CSV
     start_stop = input("請輸入出發站：").strip()
     end_stop = input("請輸入目的站：").strip()
 
-    df = pd.read_csv(csv_path)
+    # 嘗試用 utf-8-sig 或 big5 讀取，避免亂碼
+    try:
+        df = pd.read_csv(csv_path, encoding="utf-8-sig")
+    except UnicodeDecodeError:
+        df = pd.read_csv(csv_path, encoding="big5")
+
+    # 去除重複資料
+    df = df.drop_duplicates()
+
+    # 自動判斷方向
+    # 假設同一條路線的 stop_sequence 最小的是 go，最大的是 come
+    def infer_direction(group):
+        min_seq = group['stop_sequence'].min()
+        max_seq = group['stop_sequence'].max()
+        group['direction'] = group['stop_sequence'].apply(lambda x: 'go' if abs(x - min_seq) < abs(x - max_seq) else 'come')
+        return group
+
+    df = df.groupby(['route_id', 'route_name']).apply(infer_direction).reset_index(drop=True)
+
+    # 重新排序
+    df = df.sort_values(['route_id', 'direction', 'stop_sequence'])
+
+    # 儲存為 utf-8-sig，避免 Excel 亂碼
+    df.to_csv(csv_path, index=False, encoding="utf-8-sig")
 
     match_routes = find_bus_routes_from_df(df, start_stop, end_stop)
 
@@ -161,6 +199,41 @@ if __name__ == "__main__":
         if selected["direction"] == "go":
             print("\n📍 即時動態（去程）：")
             print(go_df)
+            # 輸出即時動態CSV
+            go_df.to_csv(f'./20250605/realtime_{selected["route_id"]}_go.csv', index=False, encoding='utf-8-sig')
+            print(f"✅ 已輸出即時動態CSV：./20250605/realtime_{selected['route_id']}_go.csv")
         else:
             print("\n📍 即時動態（回程）：")
             print(back_df)
+            # 輸出即時動態CSV
+            back_df.to_csv(f'./20250605/realtime_{selected["route_id"]}_come.csv', index=False, encoding='utf-8-sig')
+            print(f"✅ 已輸出即時動態CSV：./20250605/realtime_{selected['route_id']}_come.csv")
+
+    # 嘗試用 utf-8-sig 或 big5 讀取，避免亂碼
+    try:
+        df = pd.read_csv("./20250605/full_route_stops.csv", encoding="utf-8-sig")
+    except UnicodeDecodeError:
+        df = pd.read_csv("./20250605/full_route_stops.csv", encoding="big5")
+
+    # 去除重複資料
+    df = df.drop_duplicates()
+
+    # 自動判斷方向
+    # 假設同一條路線的 stop_sequence 最小的是 go，最大的是 come
+    def infer_direction(group):
+        min_seq = group['stop_sequence'].min()
+        max_seq = group['stop_sequence'].max()
+        group['direction'] = group['stop_sequence'].apply(lambda x: 'go' if abs(x - min_seq) < abs(x - max_seq) else 'come')
+        return group
+
+    df = df.groupby(['route_id', 'route_name']).apply(infer_direction).reset_index(drop=True)
+
+    # 重新排序
+    df = df.sort_values(['route_id', 'direction', 'stop_sequence'])
+
+    # 儲存為 utf-8-sig，避免 Excel 亂碼
+    df.to_csv("./20250605/full_route_stops.csv", index=False, encoding="utf-8-sig")
+
+    print("✅ full_route_stops.csv 已優化完成！")
+
+
