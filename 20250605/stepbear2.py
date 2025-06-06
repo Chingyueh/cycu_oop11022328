@@ -242,7 +242,7 @@ import json
 import os
 
 client = openai.OpenAI(
-    api_key="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",
+    api_key="請找我拿API金鑰",
     base_url="https://api.groq.com/openai/v1"
 )
 
