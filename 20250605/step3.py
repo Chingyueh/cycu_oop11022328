@@ -51,9 +51,12 @@ def plot_bus_route_with_village(csv_path):
     # 讀取村里界 Shapefile
     village_shp = gpd.read_file('20250520/村(里)界(TWD97經緯度)1140318/VILLAGE_NLSC_1140318.shp')
 
-    # 過濾北北基桃
-    target_cities = ['臺北市', '新北市', '基隆市', '桃園市']
+    # 若村里界含全台，則只取北北基桃區域
+    # 若已確認資料只含大台北地區，也可省略以下三行
+    target_cities = ['臺北市', '新北市', '基隆市']
     filtered_village_shp = village_shp[village_shp['COUNTYNAME'].isin(target_cities)]
+
+
 
     # 讀取公車站點（即時動態）
     bus_stops = pd.read_csv(csv_path)
@@ -66,7 +69,7 @@ def plot_bus_route_with_village(csv_path):
     geometry = [Point(xy) for xy in zip(bus_stops['lon'], bus_stops['lat'])]
     bus_stops_gdf = gpd.GeoDataFrame(bus_stops, geometry=geometry, crs='EPSG:4326')
 
-    # 左圖用北北基桃範圍
+    # 左圖用大台北範圍
     village_bounds = filtered_village_shp.total_bounds  # minx, miny, maxx, maxy
     buffer_village = 0.05
     extent_village = (village_bounds[0] - buffer_village, village_bounds[2] + buffer_village,
@@ -80,15 +83,15 @@ def plot_bus_route_with_village(csv_path):
     # 畫圖
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(18, 9))
 
-    # 左圖 - 北北基桃整區域地圖
+    # 左圖 - 大台北整區域地圖
     plot_map_without_arrival(bus_stops, filtered_village_shp, ax1)
-    ax1.set_title(f'北北基桃村里界與公車即時動態站點\n({os.path.basename(csv_path)})', fontsize=16)
+    ax1.set_title(f'熊寶公車即時動態站點\n({os.path.basename(csv_path)})', fontsize=16)
     ax1.set_xlim(extent_village[0], extent_village[1])
     ax1.set_ylim(extent_village[2], min(25.4, extent_village[3]))
 
     # 右圖 - 放大版，有「站名, 到站時間」交錯標註
     plot_map_with_arrival(bus_stops_gdf, filtered_village_shp, ax2, base_fontsize=6)
-    ax2.set_title(f'70UPUP公車即時動態站點 放大版\n({os.path.basename(csv_path)})', fontsize=16)
+    ax2.set_title(f'熊寶公車即時動態站點 放大版\n({os.path.basename(csv_path)})', fontsize=16)
     ax2.set_xlim(extent_small[0], extent_small[1])
     ax2.set_ylim(extent_small[2], min(25.4, extent_small[3]))
 
