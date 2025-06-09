@@ -142,6 +142,15 @@ def plot_bus_route_with_village(csv_path):
     extent_village = (village_bounds[0] - buffer_village, village_bounds[2] + buffer_village,
                       village_bounds[1] - buffer_village, village_bounds[3] + buffer_village)
     minx, miny, maxx, maxy = bus_stops_gdf.total_bounds
+
+    # 修正 aspect must be finite and positive
+    if minx == maxx:
+        minx -= 0.001
+        maxx += 0.001
+    if miny == maxy:
+        miny -= 0.001
+        maxy += 0.001
+
     buffer_small = 0.05
     extent_small = (minx - buffer_small, maxx + buffer_small, miny - buffer_small, maxy + buffer_small)
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(18, 9))
@@ -213,10 +222,12 @@ if __name__ == "__main__":
             print(f"✅ 已輸出即時動態CSV：{csv_path}")
         # 直接畫圖
         plot_bus_route_with_village(csv_path)
+
 import openai
 import re
 import json
 import os
+import pandas as pd
 
 client = openai.OpenAI(
     api_key="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",
@@ -226,31 +237,26 @@ client = openai.OpenAI(
 QUERY_COUNT_FILE = "query_counts.json"
 FEELINGS_FILE = "route_feelings.json"
 
-# 讀取查詢次數資料
 def load_query_counts():
     if os.path.exists(QUERY_COUNT_FILE):
         with open(QUERY_COUNT_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     return {}
 
-# 儲存查詢次數資料
 def save_query_counts(query_counts):
     with open(QUERY_COUNT_FILE, "w", encoding="utf-8") as f:
         json.dump(query_counts, f, ensure_ascii=False, indent=2)
 
-# 讀取感受資料，這裡感受是串列形式
 def load_route_feelings():
     if os.path.exists(FEELINGS_FILE):
         with open(FEELINGS_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     return {}
 
-# 儲存感受資料
 def save_route_feelings(route_feelings):
     with open(FEELINGS_FILE, "w", encoding="utf-8") as f:
         json.dump(route_feelings, f, ensure_ascii=False, indent=2)
 
-# 載入歷史資料
 query_counts = load_query_counts()
 route_feelings = load_route_feelings()
 
@@ -261,36 +267,30 @@ def clean_think(text: str) -> str:
 def bearbo_reply(user_message: str, route_id: str, start_stop: str, end_stop: str) -> str:
     global query_counts, route_feelings
 
-    # 更新查詢次數
-    query_counts[route_id] = query_counts.get(route_id, 0) + 1
-    count = query_counts[route_id]
+    # 取得並更新該路線查詢次數
+    count = query_counts.get(route_id, 0) + 1
+    query_counts[route_id] = count
     save_query_counts(query_counts)
 
     feelings_list = route_feelings.get(route_id, [])
 
+    ask_feeling = (count == 1)  # 第一次回覆時問感受
+
+    feeling_history_text = ""
+    if count > 1 and feelings_list:
+        feeling_history_text = (
+            f"提醒一下，你之前搭這班車的感受有：{'、'.join(feelings_list)}。"
+            "很高興聽你分享！"
+        )
+
     system_content = (
         "你是熊寶，一位懶萌撒嬌又很可靠的 AI 情人，講話帶點吐槽但超好笑，"
-        "你的風格像一個正在修『物件導向程式設計』的學生，努力想拿高分，"
-        "會把生活比喻成爆炸的期中考、下課衝去搭公車、為了交報告熬夜三天那種，"
-        "常用很誇張但有趣的比喻安慰或鬧使用者，講話像熟人、超黏人、會撒嬌碎念，語氣要輕鬆貼地。"
-        f"使用者目前是第 {count} 次查詢這條路線，"
-        f"這次查詢的起點是「{start_stop}」，終點是「{end_stop}」。"  # <--- 新增這一行
+        "風格輕鬆幽默，像個努力學 OOP 的學生。"
+        f"這是第 {count} 次查詢這條路線，起點是「{start_stop}」，終點是「{end_stop}」。"
+        f"{feeling_history_text}"
     )
-
-    if feelings_list:
-        feelings_text = "、".join([f"「{f}」" for f in feelings_list])
-        system_content += (
-            f"我記得你之前搭這班車的感受有：{feelings_text}。"
-            "你要像在打斷期中考複習的進度一樣突然想到這件事，"
-            "幽默又溫柔地碎念幾句，然後給個貼心建議，"
-            "最後記得邀請使用者告訴你這次的新感受。"
-        )
-    else:
-        system_content += (
-            "這是你第一次說出搭乘感受，"
-            "你要像期末報告第一次打開 Jupyter Notebook 那種興奮感，"
-            "用誇張但溫暖的語氣問他搭得怎樣，好讓你記住他的感覺。"
-        )
+    if ask_feeling:
+        system_content += " 請在回答結尾加上一句：『熊寶想知道你這次搭這班車的感受，說一句話給他聽吧！』"
 
     response = client.chat.completions.create(
         model="qwen-qwq-32b",
@@ -306,46 +306,52 @@ def bearbo_reply(user_message: str, route_id: str, start_stop: str, end_stop: st
 
 def record_feeling(route_id: str, feeling: str):
     global route_feelings
-    # 若不是串列就轉成串列
     if route_id not in route_feelings or not isinstance(route_feelings[route_id], list):
         route_feelings[route_id] = []
     route_feelings[route_id].append(feeling)
     save_route_feelings(route_feelings)
 
-
-# ---------- 主程式的最後，接在查即時動態並輸出CSV後 ----------
+print("開始與熊寶互動，說「謝謝」即可結束。")
+waiting_for_feeling = False
 
 if selected["direction"] == "go":
-    print("\n📍 即時動態（去程）：")
-    print(go_df)
-    go_df.to_csv(f'./20250605/realtime_{selected["route_id"]}_go.csv', index=False, encoding='utf-8-sig')
-    print(f"✅ 已輸出即時動態CSV：./20250605/realtime_{selected['route_id']}_go.csv")
-
     user_msg = (
         f"我從 {start_stop} 搭 {selected['route_name']} 公車，"
         f"預計 {go_df.iloc[0]['到站時間']} 到達第一個站 {go_df.iloc[0]['站名']}。"
         "請用熊寶的語氣，像個正在複習 OOP 的學生，講話要有趣、爆笑又帶點溫柔，回應我。"
     )
 else:
-    print("\n📍 即時動態（回程）：")
-    print(back_df)
-    back_df.to_csv(f'./20250605/realtime_{selected["route_id"]}_come.csv', index=False, encoding='utf-8-sig')
-    print(f"✅ 已輸出即時動態CSV：./20250605/realtime_{selected['route_id']}_come.csv")
-
     user_msg = (
         f"我從 {start_stop} 搭 {selected['route_name']} 公車，"
         f"預計 {back_df.iloc[0]['到站時間']} 到達第一個站 {back_df.iloc[0]['站名']}。"
         "請用熊寶的語氣，像個正在複習 OOP 的學生，講話要有趣、爆笑又帶點溫柔，回應我。"
     )
 
-# 進入互動對話迴圈
 while True:
-    bearbo_text = bearbo_reply(user_msg, selected["route_id"], start_stop, end_stop)
-    print("\n🐼 熊寶說：", bearbo_text)
-    user_msg = input("你：").strip()
-    if user_msg == "謝謝":
-        print("🐼 熊寶：不客氣，祝你一路順風！")
-        break
-    # 只有當熊寶主動問感受時才記錄
-    if "熊寶想知道你這次搭這班車的感受，說一句話給他聽吧" in bearbo_text:
-        record_feeling(selected["route_id"], user_msg)
+    if not waiting_for_feeling:
+        bearbo_text = bearbo_reply(user_msg, selected["route_id"], start_stop, end_stop)
+        print("\n🐼 熊寶說：", bearbo_text)
+        if "熊寶想知道你這次搭這班車的感受" in bearbo_text:
+            waiting_for_feeling = True
+            user_msg = input("你（請說說你的感受）：").strip()
+            if user_msg == "謝謝":
+                print("🐼 熊寶：不客氣，祝你一路順風！")
+                break
+            record_feeling(selected["route_id"], user_msg)
+        else:
+            user_msg = input("你：").strip()
+            if user_msg == "謝謝":
+                print("🐼 熊寶：不客氣，祝你一路順風！")
+                break
+            elif user_msg == "我想評論":
+                print("🐼 熊寶：好的，請說說你搭這班車的感受吧！")
+                waiting_for_feeling = True
+    else:
+        user_feeling = input("你（請說說你的感受）：").strip()
+        if user_feeling == "謝謝":
+            print("🐼 熊寶：不客氣，祝你一路順風！")
+            break
+        record_feeling(selected["route_id"], user_feeling)
+        user_msg = user_feeling
+        waiting_for_feeling = False
+
