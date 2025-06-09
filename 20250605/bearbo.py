@@ -230,7 +230,7 @@ import os
 import pandas as pd
 
 client = openai.OpenAI(
-    api_key="API金藥",
+    api_key="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",
     base_url="https://api.groq.com/openai/v1"
 )
 
@@ -338,6 +338,8 @@ while True:
                 print("🐼 熊寶：不客氣，祝你一路順風！")
                 break
             record_feeling(selected["route_id"], user_msg)
+            waiting_for_feeling = False
+            continue  # ✅ 避免下一輪又問一次
         else:
             user_msg = input("你：").strip()
             if user_msg == "謝謝":
